@@ -1,0 +1,54 @@
+{
+  "topic": "Agent Development Kit (Google ADK)",
+  "createdAt": "2026-11-08T18:54:15.021Z",
+  "cards": [
+    {
+      "question": "What is the Agent Development Kit (ADK)?",
+      "answer": "ADK is Google's open-source, code-first framework for building, evaluating, and deploying AI agents and multi-agent systems. It is optimized for Gemini and Google Cloud but is model-agnostic and deployment-agnostic."
+    },
+    {
+      "question": "What is an LlmAgent in ADK, and what are its core configuration fields?",
+      "answer": "An LlmAgent (often just `Agent`) uses an LLM to reason, decide, and act. Its core fields are `name`, `model`, `instruction`, `description`, and `tools`, and optionally `sub_agents` and `output_key`."
+    },
+    {
+      "question": "What are ADK's workflow agents, and how do they differ from LlmAgents?",
+      "answer": "SequentialAgent, ParallelAgent, and LoopAgent orchestrate sub-agents in a fixed, deterministic pattern: in order, concurrently, or repeated until a condition is met. They do not use an LLM to decide control flow, unlike LlmAgents."
+    },
+    {
+      "question": "What role does the Runner play in ADK?",
+      "answer": "The Runner is the execution engine that manages an agent's invocation. It takes user input, coordinates the agent, session, and services, and streams back a series of events."
+    },
+    {
+      "question": "What are the main types of tools an ADK agent can use?",
+      "answer": "Function tools (plain Python/Java functions), built-in tools (e.g., Google Search, code execution), third-party and OpenAPI/MCP tools, and agents wrapped as tools (AgentTool). The LLM reads each tool's name, docstring, and signature to decide when to call it."
+    },
+    {
+      "question": "Why do docstrings and type hints matter for ADK function tools?",
+      "answer": "ADK builds the tool schema from the function's name, parameters, type hints, and docstring, and the LLM relies on that schema to decide when and how to call the tool. Clear descriptions lead to more reliable tool use."
+    },
+    {
+      "question": "What are Session, State, and Memory in ADK?",
+      "answer": "A Session holds the history and events of a single conversation. State is a key-value scratchpad inside the session for data the agent uses during that conversation. Memory is a searchable store of information across sessions, accessed through a MemoryService."
+    },
+    {
+      "question": "How do multi-agent systems work in ADK?",
+      "answer": "You compose a hierarchy by giving a parent agent `sub_agents`. The parent's LLM can delegate or transfer control to a sub-agent based on the sub-agents' descriptions, or call an agent as a tool through AgentTool."
+    },
+    {
+      "question": "What is the difference between delegating to a sub-agent and using AgentTool?",
+      "answer": "With sub-agent transfer, control passes to the sub-agent, which then handles the conversation. With AgentTool, the parent calls the agent like a function, gets its result back, and stays in control."
+    },
+    {
+      "question": "What are callbacks in ADK and what are they used for?",
+      "answer": "Callbacks are hooks that run before or after agent, model, and tool steps (e.g., before_model_callback, after_tool_callback). They are used for logging, guardrails, input/output modification, caching, and blocking unsafe actions."
+    },
+    {
+      "question": "Which command-line tools does ADK provide for development and testing?",
+      "answer": "`adk web` launches a browser dev UI for interactive testing and debugging. `adk run` runs an agent in the terminal, `adk api_server` exposes it as a REST API, and `adk eval` runs evaluations against test sets."
+    },
+    {
+      "question": "How can ADK agents be deployed?",
+      "answer": "Agents are portable and can be containerized and run anywhere. Common targets are Vertex AI Agent Engine (managed), Cloud Run, and GKE, and the same code can run locally during development."
+    }
+  ]
+}
