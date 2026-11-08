@@ -1,0 +1,54 @@
+{
+  "topic": "n8n Workflows",
+  "createdAt": "2026-11-08T18:41:24.433Z",
+  "cards": [
+    {
+      "question": "What is n8n and how does it differ from many other automation tools?",
+      "answer": "n8n is a workflow automation platform that connects apps, APIs, and services using a visual node-based editor. It is fair-code licensed and can be self-hosted or used via n8n Cloud, offering more control and flexibility (including custom code) than many closed SaaS tools."
+    },
+    {
+      "question": "What is a node in n8n?",
+      "answer": "A node is a single building block in a workflow that performs one task, such as triggering the workflow, calling an API, transforming data, or applying logic. Nodes are connected so the output of one becomes the input of the next."
+    },
+    {
+      "question": "What is the difference between a trigger node and a regular (action) node?",
+      "answer": "A trigger node starts a workflow, for example via a webhook, schedule, or app event. Regular nodes run after the trigger to read, transform, or send data, and cannot start a workflow on their own."
+    },
+    {
+      "question": "What is the data structure passed between nodes in n8n?",
+      "answer": "Data is passed as an array of items, where each item is an object with a `json` property (and optionally `binary` for files). Most nodes process each incoming item and output a new list of items."
+    },
+    {
+      "question": "How do you reference data from a previous node in an expression?",
+      "answer": "Use expressions inside double curly braces, such as `{{ $json.email }}` for the current item or `{{ $('Node Name').item.json.field }}` to access another node's output. Expressions are JavaScript-based."
+    },
+    {
+      "question": "What does the Webhook node do, and what are the test vs production URLs?",
+      "answer": "The Webhook node starts a workflow when an HTTP request hits its URL. The test URL works only while you're listening in the editor, while the production URL works only when the workflow is saved and activated."
+    },
+    {
+      "question": "What is the purpose of the IF and Switch nodes?",
+      "answer": "They add conditional branching: IF splits items into true/false paths based on a condition, while Switch routes items to multiple outputs based on rules or values."
+    },
+    {
+      "question": "What does the Code node allow you to do?",
+      "answer": "It lets you write custom JavaScript (or Python) to transform data or implement logic that built-in nodes can't handle. It can run once for all items or once per item."
+    },
+    {
+      "question": "How does n8n handle credentials for connecting to services?",
+      "answer": "Credentials are stored encrypted and managed separately from workflows, then selected in nodes that need authentication (API keys, OAuth2, etc.). This allows reuse across workflows and keeps secrets out of node parameters."
+    },
+    {
+      "question": "How can you handle errors in n8n workflows?",
+      "answer": "Use an Error Trigger in a dedicated error workflow (set in workflow settings) to get notified of failures, and enable node settings like Retry On Fail or Continue On Fail. This helps with alerting and resilience."
+    },
+    {
+      "question": "What is the difference between the Merge node and the Split In Batches (Loop Over Items) node?",
+      "answer": "Merge combines data from multiple branches into one stream (e.g., by position or matching key). Loop Over Items processes a large set of items in smaller batches, useful for rate limits or iterative processing."
+    },
+    {
+      "question": "What is the difference between executing a workflow manually and activating it?",
+      "answer": "Manual execution runs the workflow once in the editor for testing and debugging, showing data at each node. Activating it makes trigger nodes listen continuously (schedules, webhooks, events) so the workflow runs automatically in production."
+    }
+  ]
+}
