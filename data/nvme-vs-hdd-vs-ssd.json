@@ -1,0 +1,54 @@
+{
+  "topic": "NVMe vs HDD vs SSD",
+  "createdAt": "2026-11-08T19:25:50.622Z",
+  "cards": [
+    {
+      "question": "How does a hard disk drive (HDD) store and retrieve data?",
+      "answer": "An HDD stores data magnetically on spinning platters, and a moving read/write head on an actuator arm accesses it. Its mechanical parts make it slower and more vulnerable to shock than flash storage."
+    },
+    {
+      "question": "How does a solid-state drive (SSD) store data, and what is its main advantage over an HDD?",
+      "answer": "An SSD stores data in NAND flash memory cells and has no moving parts. This gives it much faster access times, lower latency, better shock resistance, silence, and lower power use than an HDD."
+    },
+    {
+      "question": "What is NVMe, and is it a type of storage media or a protocol?",
+      "answer": "NVMe (Non-Volatile Memory Express) is a protocol, not a media type. It is designed for flash storage and typically runs over PCIe, so it avoids the limits of older disk-oriented interfaces."
+    },
+    {
+      "question": "What is the difference between a SATA SSD and an NVMe SSD?",
+      "answer": "Both use NAND flash, but a SATA SSD uses the SATA interface and AHCI protocol, capped at about 550 MB/s. An NVMe SSD uses PCIe lanes and the NVMe protocol, reaching about 3,500 MB/s on PCIe 3.0 x4 and 7,000+ MB/s on PCIe 4.0 x4, with up to 14,000 MB/s on PCIe 5.0."
+    },
+    {
+      "question": "Why is NVMe faster than AHCI over SATA, beyond raw bandwidth?",
+      "answer": "NVMe supports up to 64K queues with up to 64K commands each, while AHCI supports one queue with 32 commands. NVMe also has lower CPU overhead and latency, which suits parallel workloads."
+    },
+    {
+      "question": "Rank HDD, SATA SSD, and NVMe SSD by typical speed, from slowest to fastest.",
+      "answer": "HDD (about 80–160 MB/s) is slowest, then SATA SSD (about 500 MB/s), then NVMe SSD (about 3,000–14,000 MB/s). Random access and latency gaps are even larger than the sequential gaps."
+    },
+    {
+      "question": "Rank HDD, SATA SSD, and NVMe SSD by cost per gigabyte, and name the best use of each.",
+      "answer": "HDDs are cheapest per GB and suit bulk storage, backups, and archives. SATA SSDs cost moderately more and suit general use and upgrades of older systems. NVMe SSDs cost the most per GB (though often only slightly more than SATA) and suit OS drives, gaming, and video editing."
+    },
+    {
+      "question": "What are the common physical form factors for HDDs, SATA SSDs, and NVMe SSDs?",
+      "answer": "HDDs come as 3.5\" (desktop) and 2.5\" (laptop). SATA SSDs are usually 2.5\" and sometimes M.2 SATA. NVMe SSDs are most often M.2 (2280) gumstick cards, but also come as U.2 or PCIe add-in cards."
+    },
+    {
+      "question": "Why can an M.2 slot not guarantee NVMe support?",
+      "answer": "M.2 is only a connector and form factor, and it can carry either SATA or PCIe/NVMe signaling. You must check the motherboard specs and the drive's keying (B, M, or B+M) and protocol."
+    },
+    {
+      "question": "What are the main durability and reliability differences between HDDs and SSDs?",
+      "answer": "HDDs fail mainly from mechanical wear, shocks, and head crashes. SSDs have no moving parts but their NAND cells wear out after a limited number of write cycles, measured as TBW or DWPD. For typical users, SSD endurance is rarely a problem."
+    },
+    {
+      "question": "Why do NVMe SSDs run hotter than HDDs or SATA SSDs, and what is the consequence?",
+      "answer": "High-speed controllers and NAND under heavy load generate significant heat. Sustained use can cause thermal throttling, which reduces speed, so NVMe drives often use heatsinks."
+    },
+    {
+      "question": "Which drive type should you choose for a boot drive, for a large media archive, and for a budget upgrade of an old laptop?",
+      "answer": "Use an NVMe SSD for a boot drive (fastest responsiveness, if supported). Use an HDD for a large media archive (cheapest per TB). Use a SATA SSD for an old laptop upgrade, since it is a cheap, big speed boost and compatible with older SATA ports."
+    }
+  ]
+}
