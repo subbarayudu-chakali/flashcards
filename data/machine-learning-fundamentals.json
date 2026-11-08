@@ -1,0 +1,54 @@
+{
+  "topic": "Machine Learning Fundamentals",
+  "createdAt": "2026-11-08T18:44:15.082Z",
+  "cards": [
+    {
+      "question": "What is machine learning?",
+      "answer": "Machine learning is a field of AI in which algorithms learn patterns from data to make predictions or decisions without being explicitly programmed for each task. Performance improves with experience (more data)."
+    },
+    {
+      "question": "What is the difference between supervised, unsupervised, and reinforcement learning?",
+      "answer": "Supervised learning trains on labeled data to predict outputs; unsupervised learning finds structure in unlabeled data (e.g., clustering); reinforcement learning trains an agent to maximize cumulative reward through interaction with an environment."
+    },
+    {
+      "question": "What is the difference between classification and regression?",
+      "answer": "Classification predicts discrete categories (e.g., spam vs. not spam), while regression predicts continuous numerical values (e.g., house price)."
+    },
+    {
+      "question": "What are features and labels?",
+      "answer": "Features are the input variables used to make a prediction, and labels (targets) are the correct outputs the model is trained to predict in supervised learning."
+    },
+    {
+      "question": "Why do we split data into training, validation, and test sets?",
+      "answer": "The training set fits the model, the validation set is used to tune hyperparameters and select models, and the test set gives an unbiased estimate of final performance on unseen data."
+    },
+    {
+      "question": "What is overfitting, and how can it be reduced?",
+      "answer": "Overfitting occurs when a model learns noise in the training data and performs poorly on new data. It can be reduced with more data, regularization, simpler models, dropout, early stopping, or cross-validation."
+    },
+    {
+      "question": "What is underfitting?",
+      "answer": "Underfitting occurs when a model is too simple to capture the underlying pattern, resulting in poor performance on both training and test data. Fixes include using a more complex model or better features."
+    },
+    {
+      "question": "What is the bias-variance tradeoff?",
+      "answer": "Bias is error from overly simple assumptions, and variance is error from sensitivity to training data fluctuations. Reducing one typically increases the other, so the goal is a balance that minimizes total error."
+    },
+    {
+      "question": "What is a loss function, and what are two common examples?",
+      "answer": "A loss function measures how far a model's predictions are from the true values, guiding optimization. Common examples are mean squared error (regression) and cross-entropy (classification)."
+    },
+    {
+      "question": "How does gradient descent work?",
+      "answer": "Gradient descent iteratively updates model parameters in the direction opposite the gradient of the loss function, scaled by a learning rate, to minimize the loss. Too large a learning rate can diverge; too small makes training slow."
+    },
+    {
+      "question": "What are precision, recall, and F1 score?",
+      "answer": "Precision is the fraction of predicted positives that are correct (TP/(TP+FP)); recall is the fraction of actual positives found (TP/(TP+FN)). F1 is their harmonic mean, balancing both."
+    },
+    {
+      "question": "What is cross-validation and why is it used?",
+      "answer": "Cross-validation (e.g., k-fold) splits data into k parts, training on k-1 and validating on the remaining one, rotating through all folds. It gives a more reliable estimate of generalization performance, especially with limited data."
+    }
+  ]
+}
