@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flashcards</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#f4f5f7;color:#222}
+header{background:#1f2937;color:#fff;padding:16px 24px}
+main{display:flex;min-height:calc(100vh - 60px)}
+nav{width:260px;background:#fff;border-right:1px solid #ddd;padding:12px;box-sizing:border-box}
+nav button{display:block;width:100%;text-align:left;padding:10px;margin-bottom:6px;border:0;border-radius:6px;background:#eef;cursor:pointer;font-size:15px}
+nav button.active{background:#4f46e5;color:#fff}
+section{flex:1;padding:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.15);padding:20px;min-height:120px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center}
+.card.flipped{background:#4f46e5;color:#fff}
+.hint{color:#666;margin-bottom:16px}
+</style></head>
+<body>
+<header><h1 style="margin:0">Flashcards</h1></header>
+<main><nav id="topics">Loading topics...</nav>
+<section><div class="hint" id="hint">Pick a topic, then click a card to flip it.</div><div class="grid" id="cards"></div></section></main>
+<script>
+var owner = location.hostname.split('.')[0];
+var repo = location.pathname.split('/')[1];
+var topicsEl = document.getElementById('topics');
+var cardsEl = document.getElementById('cards');
+function showTopic(file, btn) {
+  Array.prototype.forEach.call(topicsEl.children, function (b) { b.className = ''; });
+  btn.className = 'active';
+  fetch('data/' + file).then(function (r) { return r.json(); }).then(function (t) {
+    document.getElementById('hint').textContent = t.topic + ' - ' + t.cards.length + ' cards';
+    cardsEl.innerHTML = '';
+    t.cards.forEach(function (c) {
+      var d = document.createElement('div');
+      d.className = 'card';
+      d.textContent = c.question;
+      var flipped = false;
+      d.onclick = function () {
+        flipped = !flipped;
+        d.textContent = flipped ? c.answer : c.question;
+        d.className = flipped ? 'card flipped' : 'card';
+      };
+      cardsEl.appendChild(d);
+    });
+  });
+}
+fetch('https://api.github.com/repos/' + owner + '/' + repo + '/contents/data')
+  .then(function (r) { return r.json(); })
+  .then(function (files) {
+    topicsEl.innerHTML = '';
+    if (!Array.isArray(files) || !files.length) { topicsEl.textContent = 'No topics yet.'; return; }
+    files.filter(function (f) { return /[.]json$/.test(f.name); }).forEach(function (f) {
+      var b = document.createElement('button');
+      b.textContent = f.name.replace(/[.]json$/, '').replace(/-/g, ' ');
+      b.onclick = function () { showTopic(f.name, b); };
+      topicsEl.appendChild(b);
+    });
+  })
+  .catch(function () { topicsEl.textContent = 'Could not load topics.'; });
+</script></body></html>
