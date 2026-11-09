@@ -1,0 +1,54 @@
+{
+  "topic": "Agent2Agent (A2A) Protocol",
+  "createdAt": "2026-11-09T07:33:47.178Z",
+  "cards": [
+    {
+      "question": "What is the Agent2Agent (A2A) protocol?",
+      "answer": "A2A is an open protocol, introduced by Google in April 2025 and now hosted by the Linux Foundation, that lets independent AI agents discover each other, communicate, and collaborate across different vendors and frameworks. It standardizes agent-to-agent interoperability."
+    },
+    {
+      "question": "What problem does A2A solve?",
+      "answer": "It addresses the fragmentation of agent ecosystems, where agents built on different frameworks or by different companies can't easily work together. A2A provides a common language so they can delegate tasks and exchange results without sharing internals."
+    },
+    {
+      "question": "How does A2A differ from the Model Context Protocol (MCP)?",
+      "answer": "MCP connects an agent to tools, data sources, and resources (agent-to-tool), while A2A connects agents to other agents (agent-to-agent). The two are complementary: an agent may use MCP for its tools and A2A to collaborate with peers."
+    },
+    {
+      "question": "What is an Agent Card in A2A?",
+      "answer": "An Agent Card is a JSON metadata document, typically served at /.well-known/agent.json (or agent-card.json), describing an agent's identity, endpoint URL, capabilities, skills, supported modalities, and authentication requirements. Clients use it for discovery."
+    },
+    {
+      "question": "What are the two main roles in an A2A interaction?",
+      "answer": "The client agent initiates requests and delegates tasks on behalf of a user, while the remote (server) agent receives the request and performs the work. An agent can act in either role depending on the interaction."
+    },
+    {
+      "question": "What is a Task in A2A?",
+      "answer": "A Task is the core unit of work, with a unique ID and a lifecycle. It progresses through states such as submitted, working, input-required, completed, failed, or canceled, and produces artifacts as output."
+    },
+    {
+      "question": "What are Messages, Parts, and Artifacts in A2A?",
+      "answer": "Messages are communication turns between client and agent, each composed of Parts (text, file, or structured data content). Artifacts are the tangible outputs of a task, such as documents or images, also composed of Parts."
+    },
+    {
+      "question": "What transport and data formats does A2A use?",
+      "answer": "A2A is built on existing web standards: HTTP(S) for transport, JSON-RPC 2.0 for message format, and Server-Sent Events (SSE) for streaming. Later versions also support additional bindings such as gRPC."
+    },
+    {
+      "question": "How does A2A support long-running tasks and real-time updates?",
+      "answer": "It supports streaming via Server-Sent Events for incremental updates, and push notifications via webhooks for asynchronous, long-running work. Tasks can also pause in an input-required state to request more information from the client."
+    },
+    {
+      "question": "How does A2A handle security and authentication?",
+      "answer": "A2A is secure by default, using enterprise-grade schemes like OAuth 2.0, OpenID Connect, API keys, and HTTPS/TLS. Authentication requirements are declared in the Agent Card, and credentials are handled out-of-band over standard HTTP headers."
+    },
+    {
+      "question": "What is the 'opaque agent' principle in A2A?",
+      "answer": "Agents collaborate without exposing their internal state, memory, reasoning, or tools. They interact only via declared capabilities and exchanged messages, protecting intellectual property and enabling heterogeneous implementations."
+    },
+    {
+      "question": "What are some core A2A methods a client uses to interact with a remote agent?",
+      "answer": "Common operations include sending a message (message/send), streaming a message (message/stream), retrieving a task's status (tasks/get), and canceling a task (tasks/cancel). Push notification configuration methods are also available."
+    }
+  ]
+}
