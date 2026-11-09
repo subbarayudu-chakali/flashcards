@@ -1,0 +1,54 @@
+{
+  "topic": "Prompt Engineering",
+  "createdAt": "2026-11-09T11:35:48.370Z",
+  "cards": [
+    {
+      "question": "What is prompt engineering?",
+      "answer": "Prompt engineering is the practice of designing and refining inputs to a language model so that it produces accurate, relevant, and well-formatted outputs. It involves choosing wording, structure, context, and examples to steer model behavior."
+    },
+    {
+      "question": "What are the core components of an effective prompt?",
+      "answer": "Typically: a clear instruction/task, relevant context or background, input data, and a desired output format. Optional additions include a role/persona, examples, and constraints."
+    },
+    {
+      "question": "What is zero-shot prompting?",
+      "answer": "Zero-shot prompting asks the model to perform a task with instructions only and no examples. It relies on the model's pretrained knowledge to generalize to the task."
+    },
+    {
+      "question": "What is few-shot prompting?",
+      "answer": "Few-shot prompting includes a small number of input-output examples in the prompt to demonstrate the task, format, or style. It helps the model infer the pattern through in-context learning."
+    },
+    {
+      "question": "What is chain-of-thought (CoT) prompting?",
+      "answer": "Chain-of-thought prompting encourages the model to reason step by step before giving a final answer, e.g., 'Let's think step by step.' It often improves performance on math, logic, and multi-step reasoning tasks."
+    },
+    {
+      "question": "What is the role of a system prompt?",
+      "answer": "A system prompt sets high-level instructions, persona, rules, and constraints that guide the model's behavior across a whole conversation. It is typically separate from and takes precedence over individual user messages."
+    },
+    {
+      "question": "Why is specificity important in prompts?",
+      "answer": "Vague prompts yield generic or inconsistent outputs, while specific prompts clearly define the task, audience, length, tone, and format. Reducing ambiguity lowers the chance the model has to guess your intent."
+    },
+    {
+      "question": "How can you control the output format of a model's response?",
+      "answer": "Explicitly specify the format (e.g., JSON, bullet list, table), provide a schema or template, and include an example of the desired output. Delimiters and clear instructions like 'return only valid JSON' improve consistency."
+    },
+    {
+      "question": "What is role prompting?",
+      "answer": "Role prompting assigns the model a persona or expertise (e.g., 'You are an experienced data analyst') to shape tone, vocabulary, and the perspective of its answers. It can improve relevance but doesn't add knowledge the model lacks."
+    },
+    {
+      "question": "What is prompt injection and why is it a concern?",
+      "answer": "Prompt injection is when malicious or untrusted text in the input overrides or manipulates the model's original instructions. It can cause data leaks or unintended actions, so inputs should be separated, sanitized, and the model's permissions limited."
+    },
+    {
+      "question": "What does it mean to iterate on prompts, and why is it necessary?",
+      "answer": "Iterating means testing a prompt, examining failures, and refining wording, examples, or structure repeatedly. Because model outputs are probabilistic and sensitive to phrasing, systematic evaluation on varied test cases is needed to get reliable results."
+    },
+    {
+      "question": "How do temperature and other sampling parameters affect outputs?",
+      "answer": "Temperature controls randomness: low values give more deterministic, focused outputs, while high values give more varied, creative ones. Parameters like top-p similarly limit the token choices considered during generation."
+    }
+  ]
+}
