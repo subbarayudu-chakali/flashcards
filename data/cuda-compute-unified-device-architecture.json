@@ -1,0 +1,54 @@
+{
+  "topic": "CUDA (Compute Unified Device Architecture)",
+  "createdAt": "2026-11-09T07:36:40.988Z",
+  "cards": [
+    {
+      "question": "What is CUDA?",
+      "answer": "CUDA is NVIDIA's parallel computing platform and programming model that lets developers run general-purpose code on NVIDIA GPUs. It extends C/C++ (and other languages) with constructs for writing kernels that execute across thousands of threads."
+    },
+    {
+      "question": "What is a kernel in CUDA, and how is it declared and launched?",
+      "answer": "A kernel is a function that runs on the GPU, executed by many threads in parallel. It is declared with the __global__ qualifier and launched with the syntax kernel<<<gridDim, blockDim>>>(args)."
+    },
+    {
+      "question": "Explain the CUDA thread hierarchy.",
+      "answer": "Threads are grouped into blocks, and blocks are grouped into a grid. Threads in the same block can cooperate through shared memory and synchronization, while different blocks execute independently."
+    },
+    {
+      "question": "How do you compute a thread's global 1D index in a kernel?",
+      "answer": "Use int i = blockIdx.x * blockDim.x + threadIdx.x;. This combines the block's position in the grid with the thread's position in its block, and is usually followed by a bounds check (if i < n)."
+    },
+    {
+      "question": "What is a warp?",
+      "answer": "A warp is a group of 32 threads that execute instructions together in SIMT (Single Instruction, Multiple Threads) fashion on a streaming multiprocessor. Warp divergence, where threads in a warp take different branches, serializes execution and hurts performance."
+    },
+    {
+      "question": "What do the function qualifiers __global__, __device__, and __host__ mean?",
+      "answer": "__global__ functions run on the device and are called from the host (or device via dynamic parallelism). __device__ functions run on and are callable only from the device, while __host__ functions run on the CPU; __host__ __device__ compiles for both."
+    },
+    {
+      "question": "Describe the main types of CUDA memory.",
+      "answer": "Global memory is large, high-latency, and accessible by all threads. Shared memory is fast, on-chip, and per-block; registers are private to each thread; local memory is per-thread spill space in global memory; constant and texture memory are cached read-only spaces."
+    },
+    {
+      "question": "How do you allocate and transfer memory between host and device?",
+      "answer": "Allocate device memory with cudaMalloc, copy data with cudaMemcpy (using cudaMemcpyHostToDevice or cudaMemcpyDeviceToHost), and free with cudaFree. Unified Memory via cudaMallocManaged offers a single pointer accessible from both CPU and GPU."
+    },
+    {
+      "question": "What is memory coalescing and why does it matter?",
+      "answer": "Coalescing occurs when threads in a warp access contiguous, aligned global memory addresses so the hardware combines them into few transactions. It greatly improves memory bandwidth utilization, while strided or random access wastes bandwidth."
+    },
+    {
+      "question": "What does __syncthreads() do?",
+      "answer": "It is a barrier that makes all threads in a block wait until every thread has reached that point, and ensures prior shared and global memory writes are visible to the block. It must be reached by all threads in the block, or deadlock/undefined behavior can occur."
+    },
+    {
+      "question": "What are CUDA streams and why are they used?",
+      "answer": "A stream is a sequence of GPU operations that execute in order, while operations in different streams may run concurrently. They enable overlapping of kernel execution with memory transfers (ideally with pinned host memory and async copies like cudaMemcpyAsync)."
+    },
+    {
+      "question": "How do you handle errors and synchronize with the GPU in CUDA?",
+      "answer": "Kernel launches are asynchronous, so use cudaDeviceSynchronize() to wait for completion and check return codes of API calls (cudaError_t) plus cudaGetLastError() after launches. Using a macro to wrap calls and print cudaGetErrorString helps debugging."
+    }
+  ]
+}
