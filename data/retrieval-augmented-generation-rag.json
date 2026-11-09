@@ -1,0 +1,54 @@
+{
+  "topic": "Retrieval Augmented Generation (RAG)",
+  "createdAt": "2026-11-09T07:36:13.444Z",
+  "cards": [
+    {
+      "question": "What is Retrieval Augmented Generation (RAG)?",
+      "answer": "RAG is a technique that enhances an LLM's output by retrieving relevant information from an external knowledge source and adding it to the prompt before generation. This grounds responses in up-to-date or domain-specific data rather than relying only on the model's training."
+    },
+    {
+      "question": "What problems does RAG address in large language models?",
+      "answer": "It reduces hallucinations, provides access to knowledge beyond the training cutoff, and allows use of private or proprietary data without retraining. It also enables source citation, which makes answers more verifiable."
+    },
+    {
+      "question": "What are the two main stages of a basic RAG pipeline?",
+      "answer": "Retrieval: find the documents or chunks most relevant to the user query. Generation: pass the query plus the retrieved context to the LLM to produce a grounded answer."
+    },
+    {
+      "question": "What is an embedding, and why is it central to RAG?",
+      "answer": "An embedding is a dense numerical vector representing the semantic meaning of text. In RAG, queries and document chunks are embedded into the same vector space so semantically similar content can be found by measuring vector similarity."
+    },
+    {
+      "question": "What is a vector database and what role does it play in RAG?",
+      "answer": "A vector database stores embeddings and supports fast approximate nearest-neighbor search over them. In RAG it holds the document chunk embeddings and returns the ones most similar to the query embedding."
+    },
+    {
+      "question": "What is chunking, and why does chunk size matter?",
+      "answer": "Chunking splits documents into smaller passages before embedding. Chunks that are too large dilute relevance and waste context window space, while chunks that are too small lose context; overlap between chunks helps preserve continuity."
+    },
+    {
+      "question": "Which similarity metrics are commonly used for retrieval in RAG?",
+      "answer": "Cosine similarity, dot product, and Euclidean (L2) distance are most common. Cosine similarity compares the angle between vectors and is the usual default for text embeddings."
+    },
+    {
+      "question": "What is the difference between RAG and fine-tuning?",
+      "answer": "RAG supplies knowledge at inference time through retrieved context, so it is easy to update and can cite sources. Fine-tuning changes model weights to teach style, behavior, or specialized skills, but is costlier to update and is less reliable for adding factual knowledge."
+    },
+    {
+      "question": "What is hybrid search in RAG?",
+      "answer": "Hybrid search combines dense vector (semantic) retrieval with sparse keyword retrieval such as BM25, then merges the results, often with reciprocal rank fusion. It handles both conceptual matches and exact terms like names or IDs."
+    },
+    {
+      "question": "What is reranking in a RAG pipeline?",
+      "answer": "Reranking takes the top candidates from initial retrieval and rescores them with a more accurate model, typically a cross-encoder, to put the most relevant passages first. This improves precision before the context goes to the LLM."
+    },
+    {
+      "question": "What are common failure modes of RAG systems?",
+      "answer": "Retrieval can miss relevant chunks or return irrelevant ones, context can be truncated or exceed the window, and the LLM may ignore or misuse the retrieved context. Poor chunking, weak embeddings, and ambiguous queries are frequent root causes."
+    },
+    {
+      "question": "How do you evaluate a RAG system?",
+      "answer": "Evaluate retrieval with metrics like recall@k, precision, and MRR, and evaluate generation for faithfulness (grounded in context), answer relevance, and correctness. Frameworks such as RAGAS help automate these measurements."
+    }
+  ]
+}
