@@ -1,0 +1,54 @@
+{
+  "topic": "Supervised Learning",
+  "createdAt": "2026-11-09T11:33:10.977Z",
+  "cards": [
+    {
+      "question": "What is supervised learning?",
+      "answer": "A machine learning paradigm where a model learns a mapping from inputs to outputs using labeled training data (input-output pairs). The goal is to generalize to predict correct labels for unseen inputs."
+    },
+    {
+      "question": "What is the difference between classification and regression?",
+      "answer": "Classification predicts discrete categories (e.g., spam vs. not spam), while regression predicts continuous numeric values (e.g., house price). Both are supervised tasks but use different output types and loss functions."
+    },
+    {
+      "question": "What are features and labels in a supervised dataset?",
+      "answer": "Features are the input variables (attributes) used to make predictions, and labels (targets) are the known correct outputs the model is trained to predict."
+    },
+    {
+      "question": "What is a loss function, and give two common examples?",
+      "answer": "A loss function quantifies the error between predictions and true labels, guiding model training. Examples: mean squared error (regression) and cross-entropy loss (classification)."
+    },
+    {
+      "question": "Why do we split data into training, validation, and test sets?",
+      "answer": "The training set fits model parameters, the validation set tunes hyperparameters and selects models, and the test set gives an unbiased estimate of final performance on unseen data."
+    },
+    {
+      "question": "What is overfitting and how can it be reduced?",
+      "answer": "Overfitting occurs when a model learns noise in the training data and performs poorly on new data. It can be reduced with more data, regularization, simpler models, early stopping, dropout, or cross-validation."
+    },
+    {
+      "question": "What is underfitting?",
+      "answer": "Underfitting happens when a model is too simple to capture the underlying pattern, resulting in high error on both training and test data. Fixes include using a more complex model or better features."
+    },
+    {
+      "question": "Explain the bias-variance tradeoff.",
+      "answer": "Bias is error from overly simplistic assumptions, while variance is error from sensitivity to training data fluctuations. Increasing model complexity lowers bias but raises variance, so the goal is to find a balance that minimizes total error."
+    },
+    {
+      "question": "How does gradient descent work in training supervised models?",
+      "answer": "It iteratively updates model parameters in the direction opposite to the gradient of the loss function, scaled by a learning rate. This gradually reduces the loss toward a minimum."
+    },
+    {
+      "question": "What is regularization, and how do L1 and L2 differ?",
+      "answer": "Regularization adds a penalty on model complexity to the loss to reduce overfitting. L1 (lasso) penalizes absolute weights and promotes sparsity, while L2 (ridge) penalizes squared weights and shrinks them smoothly."
+    },
+    {
+      "question": "What is k-fold cross-validation?",
+      "answer": "The data is split into k equal folds; the model is trained on k-1 folds and validated on the remaining one, repeated k times. Averaging the results gives a more reliable performance estimate."
+    },
+    {
+      "question": "Which metrics are commonly used to evaluate classifiers, and when is accuracy misleading?",
+      "answer": "Common metrics include accuracy, precision, recall, F1-score, and ROC-AUC. Accuracy is misleading on imbalanced datasets, where predicting the majority class can score high while missing the minority class."
+    }
+  ]
+}
