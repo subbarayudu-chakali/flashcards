@@ -1,0 +1,54 @@
+{
+  "topic": "LangGraph",
+  "createdAt": "2026-11-09T07:34:04.872Z",
+  "cards": [
+    {
+      "question": "What is LangGraph and what problem does it solve?",
+      "answer": "LangGraph is a library from LangChain for building stateful, multi-step LLM applications and agents as graphs. It adds cycles, persistence, branching, and control flow that simple linear chains do not support well."
+    },
+    {
+      "question": "What are the three core building blocks of a LangGraph graph?",
+      "answer": "State (shared data passed through the graph), Nodes (functions that read state and return updates), and Edges (connections that determine which node runs next)."
+    },
+    {
+      "question": "What is the role of State in LangGraph, and how is it typically defined?",
+      "answer": "State is the shared data structure that nodes read from and write to as the graph executes. It is typically defined with a TypedDict, a dataclass, or a Pydantic model."
+    },
+    {
+      "question": "What are reducers in LangGraph state, and why are they useful?",
+      "answer": "A reducer specifies how a node's update to a state key is merged with the existing value, instead of overwriting it. For example, `add_messages` or `operator.add` appends to a list, which is useful for accumulating message history."
+    },
+    {
+      "question": "What does a node do in LangGraph?",
+      "answer": "A node is a function (or runnable) that takes the current state and returns a partial state update. Nodes hold the logic, such as calling an LLM, invoking a tool, or processing data."
+    },
+    {
+      "question": "What is the difference between normal edges and conditional edges?",
+      "answer": "A normal edge always goes from one node to a fixed next node. A conditional edge uses a routing function that inspects the state and returns the name of the next node (or nodes), enabling branching and loops."
+    },
+    {
+      "question": "What are START and END in LangGraph?",
+      "answer": "START is a special node marking the graph's entry point, and END is a special node marking termination. You connect real nodes to them with edges, such as `add_edge(START, \"agent\")`."
+    },
+    {
+      "question": "What is the basic workflow for building and running a graph with StateGraph?",
+      "answer": "Create `StateGraph(State)`, add nodes with `add_node`, add edges with `add_edge` or `add_conditional_edges`, then call `compile()`. Run the compiled graph with `invoke`, `stream`, or their async versions."
+    },
+    {
+      "question": "What are checkpointers and why are they important in LangGraph?",
+      "answer": "Checkpointers save a snapshot of graph state at each step, keyed by a thread ID. They enable persistent memory across turns, fault tolerance, resuming runs, and time travel/debugging."
+    },
+    {
+      "question": "How does LangGraph support human-in-the-loop workflows?",
+      "answer": "You can pause execution using `interrupt()` or interrupt-before/after breakpoints, which require a checkpointer. A human can then review, edit state, or approve an action, and the graph resumes with `Command(resume=...)`."
+    },
+    {
+      "question": "How can a typical ReAct-style tool-calling agent be built in LangGraph?",
+      "answer": "Use an LLM node that may emit tool calls, a tool node that executes them, and a conditional edge that loops back to the LLM while tool calls exist and ends otherwise. The prebuilt `create_react_agent` helper provides this pattern out of the box."
+    },
+    {
+      "question": "What streaming options does LangGraph provide?",
+      "answer": "Using `stream` with modes like `values` (full state after each step), `updates` (only node changes), `messages` (LLM tokens), and `custom` (user-emitted data). This gives real-time visibility into progress and token output."
+    }
+  ]
+}
