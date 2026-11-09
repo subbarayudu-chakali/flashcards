@@ -1,0 +1,54 @@
+{
+  "topic": "Server-Sent Events (SSE)",
+  "createdAt": "2026-11-09T07:33:07.147Z",
+  "cards": [
+    {
+      "question": "What are Server-Sent Events (SSE)?",
+      "answer": "SSE is an HTTP-based technology that lets a server push a continuous stream of text events to a client over a single long-lived connection. It is unidirectional (server to client) and is standardized as part of HTML5."
+    },
+    {
+      "question": "Which browser API is used to consume SSE, and how do you open a connection?",
+      "answer": "The EventSource API. You create one with `const es = new EventSource('/stream');` and then attach handlers such as `es.onmessage`, `es.onopen`, and `es.onerror`."
+    },
+    {
+      "question": "What Content-Type must an SSE response use, and what other headers are typical?",
+      "answer": "The response must use `Content-Type: text/event-stream`. Servers typically also send `Cache-Control: no-cache` and keep the connection open (`Connection: keep-alive` on HTTP/1.1)."
+    },
+    {
+      "question": "What is the basic wire format of an SSE message?",
+      "answer": "Each event is made up of lines of `field: value` and ends with a blank line (two newlines). Fields include `data`, `event`, `id`, and `retry`, e.g. `data: hello\\n\\n`."
+    },
+    {
+      "question": "How do you send a multi-line payload in one SSE event?",
+      "answer": "Use multiple `data:` lines in the same event. The client joins them with newline characters into a single `event.data` string."
+    },
+    {
+      "question": "What does the `event:` field do?",
+      "answer": "It sets a custom event type name for the message. The client listens for it with `es.addEventListener('name', handler)` instead of `onmessage`, which only receives events with no type (or type `message`)."
+    },
+    {
+      "question": "How does SSE handle reconnection and the `id` and `retry` fields?",
+      "answer": "EventSource automatically reconnects when the connection drops. The `id` field sets the last event ID, which the browser resends in the `Last-Event-ID` header on reconnect so the server can resume, and `retry` sets the reconnection delay in milliseconds."
+    },
+    {
+      "question": "How do SSE and WebSockets differ?",
+      "answer": "SSE is one-way (server to client), runs over plain HTTP, supports text only, and has built-in reconnection. WebSockets are full-duplex, use their own protocol after an upgrade, and support both text and binary data."
+    },
+    {
+      "question": "What are the main limitations of SSE?",
+      "answer": "It is unidirectional and text-only (binary must be encoded, e.g. Base64). EventSource can't set custom headers or use POST, and under HTTP/1.1 browsers limit connections per domain (about 6)."
+    },
+    {
+      "question": "Why do SSE connections often get a periodic comment line, and what does it look like?",
+      "answer": "Servers send comment lines like `: keep-alive\\n\\n` as heartbeats to prevent proxies and load balancers from closing idle connections. Lines starting with a colon are ignored by the client."
+    },
+    {
+      "question": "How does HTTP/2 affect SSE?",
+      "answer": "HTTP/2 multiplexes many streams over a single TCP connection, which largely removes the HTTP/1.1 limit of about 6 connections per domain. Many SSE streams can then coexist efficiently."
+    },
+    {
+      "question": "How do you close an SSE connection and what happens on errors?",
+      "answer": "Call `es.close()` on the client to stop it and prevent reconnection. On network errors the `onerror` handler fires and the browser retries automatically, but if the server responds with a non-200 status or the wrong content type, the connection fails permanently."
+    }
+  ]
+}
