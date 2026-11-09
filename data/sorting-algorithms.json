@@ -1,0 +1,54 @@
+{
+  "topic": "Sorting Algorithms",
+  "createdAt": "2026-11-09T11:40:09.353Z",
+  "cards": [
+    {
+      "question": "What is a sorting algorithm, and what does it mean for a sort to be stable?",
+      "answer": "A sorting algorithm rearranges elements into a defined order (e.g., ascending). A stable sort preserves the relative order of elements with equal keys, which matters when sorting records by multiple fields."
+    },
+    {
+      "question": "How does Bubble Sort work, and what is its time complexity?",
+      "answer": "It repeatedly steps through the list, swapping adjacent elements that are out of order, so the largest values 'bubble' to the end. It runs in O(n²) average and worst case, O(n) best case if optimized with an early-exit flag, and uses O(1) space."
+    },
+    {
+      "question": "How does Selection Sort work, and what are its complexity and stability?",
+      "answer": "It repeatedly finds the minimum element in the unsorted portion and swaps it into the next position of the sorted portion. It is O(n²) in all cases, uses O(1) space, makes at most n−1 swaps, and is not stable in its typical form."
+    },
+    {
+      "question": "How does Insertion Sort work, and when is it a good choice?",
+      "answer": "It builds a sorted prefix by inserting each next element into its correct position among the already sorted elements. It is O(n²) worst/average but O(n) on nearly sorted data, is stable and in-place, and is efficient for small arrays."
+    },
+    {
+      "question": "Describe how Merge Sort works and state its complexity.",
+      "answer": "It recursively splits the array in half, sorts each half, then merges the two sorted halves. It runs in O(n log n) in all cases, is stable, and requires O(n) extra space."
+    },
+    {
+      "question": "Describe how Quick Sort works and state its time complexity cases.",
+      "answer": "It picks a pivot, partitions elements into those less than and greater than the pivot, then recursively sorts the partitions. Average is O(n log n), worst case is O(n²) with bad pivots (e.g., already sorted input with a poor pivot choice)."
+    },
+    {
+      "question": "How can Quick Sort's worst case be avoided in practice?",
+      "answer": "Use a random pivot, median-of-three, or other better pivot selection to make unbalanced partitions unlikely. Introsort additionally switches to Heap Sort when recursion depth becomes too large, guaranteeing O(n log n)."
+    },
+    {
+      "question": "How does Heap Sort work, and what are its properties?",
+      "answer": "It builds a max-heap from the array, then repeatedly swaps the root (maximum) with the last heap element and restores the heap property on the shrinking heap. It is O(n log n) in all cases, in-place (O(1) space), and not stable."
+    },
+    {
+      "question": "What is the lower bound for comparison-based sorting, and why?",
+      "answer": "Any comparison-based sort requires Ω(n log n) comparisons in the worst case. A decision tree must have at least n! leaves (one per permutation), so its height is at least log₂(n!) = Θ(n log n)."
+    },
+    {
+      "question": "How does Counting Sort work, and when is it appropriate?",
+      "answer": "It counts occurrences of each integer key in a range of size k, then uses cumulative counts to place elements in order. It runs in O(n + k) time with O(n + k) space, is stable, and is best when the key range k is small relative to n."
+    },
+    {
+      "question": "What is Radix Sort and how does it achieve linear-like performance?",
+      "answer": "Radix Sort sorts numbers digit by digit (usually from least significant digit) using a stable sort such as Counting Sort for each pass. It runs in O(d·(n + k)) for d digits and base k, and is not comparison-based."
+    },
+    {
+      "question": "Compare in-place vs. out-of-place sorting, and give examples of each.",
+      "answer": "In-place sorts use O(1) (or O(log n) stack) extra memory, e.g., Quick Sort, Heap Sort, Insertion Sort. Out-of-place sorts need additional memory proportional to input, e.g., Merge Sort (O(n)) and Counting Sort."
+    }
+  ]
+}
