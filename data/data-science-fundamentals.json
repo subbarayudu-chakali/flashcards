@@ -1,0 +1,54 @@
+{
+  "topic": "Data Science Fundamentals",
+  "createdAt": "2026-11-09T11:40:38.584Z",
+  "cards": [
+    {
+      "question": "What is data science?",
+      "answer": "Data science is an interdisciplinary field that uses statistics, programming, and domain knowledge to extract insights and support decisions from structured and unstructured data."
+    },
+    {
+      "question": "What are the main steps in the data science lifecycle?",
+      "answer": "Define the problem, collect data, clean and prepare it, explore it (EDA), build and train models, evaluate them, deploy, and monitor. The process is iterative, so earlier steps are often revisited."
+    },
+    {
+      "question": "What is the difference between supervised and unsupervised learning?",
+      "answer": "Supervised learning trains on labeled data to predict known outcomes (e.g., classification, regression). Unsupervised learning finds structure in unlabeled data (e.g., clustering, dimensionality reduction)."
+    },
+    {
+      "question": "What is exploratory data analysis (EDA) and why is it important?",
+      "answer": "EDA uses summary statistics and visualizations to understand distributions, relationships, outliers, and missing values. It guides cleaning, feature choices, and modeling decisions."
+    },
+    {
+      "question": "What is data cleaning and what are common tasks within it?",
+      "answer": "Data cleaning fixes quality problems in raw data. Common tasks include handling missing values, removing duplicates, correcting errors and inconsistent formats, and treating outliers."
+    },
+    {
+      "question": "What is overfitting, and how can you reduce it?",
+      "answer": "Overfitting occurs when a model learns noise in the training data and performs poorly on new data. Reduce it with more data, simpler models, regularization, cross-validation, and early stopping."
+    },
+    {
+      "question": "What is the bias-variance tradeoff?",
+      "answer": "Bias is error from overly simple assumptions (underfitting), while variance is error from sensitivity to training data (overfitting). Good models balance the two to minimize total error on unseen data."
+    },
+    {
+      "question": "Why do we split data into training, validation, and test sets?",
+      "answer": "The training set fits the model, the validation set tunes hyperparameters and compares models, and the test set gives an unbiased estimate of final performance. Keeping the test set untouched prevents data leakage and over-optimistic results."
+    },
+    {
+      "question": "What is cross-validation?",
+      "answer": "Cross-validation (e.g., k-fold) splits data into k parts, training on k-1 and validating on the remaining one, rotating through all folds. It gives a more reliable estimate of generalization performance than a single split."
+    },
+    {
+      "question": "What do precision, recall, and F1-score measure?",
+      "answer": "Precision is the share of predicted positives that are correct, and recall is the share of actual positives that are found. F1 is their harmonic mean, useful with imbalanced classes."
+    },
+    {
+      "question": "What is feature engineering?",
+      "answer": "Feature engineering is creating, transforming, or selecting input variables to improve model performance. Examples include encoding categorical variables, scaling numeric features, and deriving new features such as ratios or date parts."
+    },
+    {
+      "question": "What is the difference between correlation and causation?",
+      "answer": "Correlation means two variables move together, while causation means one directly influences the other. Confounding variables or coincidence can create correlation without causation, and randomized experiments are the best way to establish causality."
+    }
+  ]
+}
