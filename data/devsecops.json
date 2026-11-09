@@ -1,0 +1,54 @@
+{
+  "topic": "DevSecOps",
+  "createdAt": "2026-11-09T11:34:33.975Z",
+  "cards": [
+    {
+      "question": "What is DevSecOps?",
+      "answer": "DevSecOps is the practice of integrating security into every phase of the DevOps lifecycle, from planning and coding through build, test, deployment, and operations. It makes security a shared responsibility across development, security, and operations teams rather than a final gate."
+    },
+    {
+      "question": "What does 'shift left' mean in DevSecOps?",
+      "answer": "Shifting left means moving security activities earlier in the software development lifecycle, such as threat modeling, code scanning, and dependency checks during design and coding. Finding flaws early is cheaper and faster to fix than finding them in production."
+    },
+    {
+      "question": "What is SAST and when is it used?",
+      "answer": "Static Application Security Testing analyzes source code, bytecode, or binaries without executing the application to find vulnerabilities like injection flaws or hardcoded secrets. It is typically run in the IDE or at commit/build stages of the CI pipeline."
+    },
+    {
+      "question": "What is DAST and how does it differ from SAST?",
+      "answer": "Dynamic Application Security Testing probes a running application from the outside, simulating attacks to find runtime issues such as XSS, misconfigurations, or authentication flaws. Unlike SAST, it needs no source code access but runs later in the pipeline, against a deployed test environment."
+    },
+    {
+      "question": "What is Software Composition Analysis (SCA)?",
+      "answer": "SCA identifies open-source and third-party components in an application and checks them against vulnerability databases and license policies. It helps detect known CVEs in dependencies, which is critical since most modern code consists largely of third-party libraries."
+    },
+    {
+      "question": "What is a Software Bill of Materials (SBOM)?",
+      "answer": "An SBOM is a formal, machine-readable inventory of all components, libraries, and their versions in a piece of software (e.g., in SPDX or CycloneDX format). It improves supply chain visibility and enables rapid identification of affected systems when a new vulnerability is disclosed."
+    },
+    {
+      "question": "Why is secrets management important in a CI/CD pipeline, and how is it done?",
+      "answer": "Hardcoded credentials, API keys, and tokens in code or config can be leaked and exploited. Use secret scanners (e.g., gitleaks) to detect them and store secrets in dedicated vaults (e.g., HashiCorp Vault, AWS Secrets Manager) injected at runtime."
+    },
+    {
+      "question": "What is Infrastructure as Code (IaC) security scanning?",
+      "answer": "It involves analyzing IaC templates (Terraform, CloudFormation, Kubernetes manifests) for misconfigurations such as open security groups, unencrypted storage, or excessive permissions before deployment. Tools like Checkov, tfsec, and KICS enable this in the pipeline."
+    },
+    {
+      "question": "What is threat modeling and when should it occur in DevSecOps?",
+      "answer": "Threat modeling is a structured process for identifying potential threats, attack paths, and mitigations for a system, using frameworks like STRIDE. It should occur during design and be revisited as the architecture changes."
+    },
+    {
+      "question": "What is the principle of least privilege, and how does it apply to DevSecOps?",
+      "answer": "Least privilege means granting users, services, and pipelines only the minimum permissions needed to perform their tasks. In DevSecOps, it applies to CI/CD service accounts, cloud IAM roles, container runtime permissions, and access to secrets, limiting the blast radius of a compromise."
+    },
+    {
+      "question": "What is a security gate (quality gate) in a CI/CD pipeline?",
+      "answer": "A security gate is an automated check that blocks or flags a build or deployment if it fails defined security criteria, such as critical vulnerabilities or policy violations. It enforces consistent standards without relying on manual review."
+    },
+    {
+      "question": "How does container security fit into DevSecOps?",
+      "answer": "Container security includes scanning images for vulnerabilities, using minimal and trusted base images, signing images, and enforcing runtime policies (e.g., non-root users, read-only filesystems). It spans build time (image scanning), deploy time (admission controls), and runtime (monitoring)."
+    }
+  ]
+}
