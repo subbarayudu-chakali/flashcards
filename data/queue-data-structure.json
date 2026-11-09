@@ -1,0 +1,54 @@
+{
+  "topic": "Queue Data Structure",
+  "createdAt": "2026-11-09T11:39:16.788Z",
+  "cards": [
+    {
+      "question": "What is a queue?",
+      "answer": "A queue is a linear data structure that follows the FIFO (First In, First Out) principle: elements are added at the rear and removed from the front."
+    },
+    {
+      "question": "What are the two primary operations of a queue, and what do they do?",
+      "answer": "Enqueue adds an element to the rear of the queue, and dequeue removes and returns the element at the front."
+    },
+    {
+      "question": "What does the peek (or front) operation do in a queue?",
+      "answer": "It returns the element at the front of the queue without removing it. It is typically O(1)."
+    },
+    {
+      "question": "What is the time complexity of enqueue and dequeue in a well-implemented queue?",
+      "answer": "Both operations run in O(1) time when implemented with a linked list, a circular array, or a deque. A naive array implementation that shifts elements on dequeue takes O(n)."
+    },
+    {
+      "question": "What is the difference between a queue and a stack?",
+      "answer": "A queue is FIFO (insert at rear, remove from front), while a stack is LIFO (insert and remove at the same end, the top)."
+    },
+    {
+      "question": "What are queue overflow and underflow?",
+      "answer": "Overflow occurs when enqueuing into a full fixed-capacity queue. Underflow occurs when dequeuing from or peeking into an empty queue."
+    },
+    {
+      "question": "Why is a circular queue (ring buffer) used instead of a simple array queue?",
+      "answer": "A simple array queue wastes space at the front after dequeues. A circular queue wraps the front and rear indices using modulo arithmetic to reuse freed slots, keeping operations O(1)."
+    },
+    {
+      "question": "In a circular array queue of capacity n, how do you distinguish full from empty?",
+      "answer": "Common approaches are to keep a size counter, or to leave one slot unused so that full is (rear+1) % n == front and empty is front == rear. Without one of these, both states look identical."
+    },
+    {
+      "question": "How is a queue implemented with a linked list?",
+      "answer": "Maintain head (front) and tail (rear) pointers. Enqueue appends a node at the tail, and dequeue removes the node at the head, both in O(1) with no fixed capacity."
+    },
+    {
+      "question": "What is a deque (double-ended queue)?",
+      "answer": "A deque allows insertion and removal at both the front and the rear. It can act as either a stack or a queue."
+    },
+    {
+      "question": "What is a priority queue and how does it differ from a regular queue?",
+      "answer": "In a priority queue, elements are removed by priority rather than arrival order. It is typically implemented with a binary heap, giving O(log n) insert and remove."
+    },
+    {
+      "question": "What are common real-world and algorithmic uses of queues?",
+      "answer": "Uses include breadth-first search, CPU and task scheduling, print spoolers, buffering (IO, streaming), and message queues. Any case needing first-come, first-served processing fits."
+    }
+  ]
+}
