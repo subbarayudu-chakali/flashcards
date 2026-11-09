@@ -1,0 +1,54 @@
+{
+  "topic": "Data Structures",
+  "createdAt": "2026-11-09T11:38:39.671Z",
+  "cards": [
+    {
+      "question": "What is a data structure, and why does the choice of one matter?",
+      "answer": "A data structure is a way of organizing and storing data so it can be accessed and modified efficiently. The right choice determines the time and space complexity of operations like search, insertion, and deletion."
+    },
+    {
+      "question": "How do arrays and linked lists differ in access and insertion performance?",
+      "answer": "Arrays offer O(1) random access by index but O(n) insertion or deletion in the middle because elements must shift. Linked lists offer O(1) insertion or deletion at a known node but O(n) access, since you must traverse from the head."
+    },
+    {
+      "question": "What is a stack, and what are its core operations?",
+      "answer": "A stack is a LIFO (last-in, first-out) structure. Its core operations are push (add to top), pop (remove from top), and peek (view top), all O(1). It is used for function call stacks, undo features, and expression parsing."
+    },
+    {
+      "question": "What is a queue, and how does it differ from a stack?",
+      "answer": "A queue is a FIFO (first-in, first-out) structure with enqueue (add at rear) and dequeue (remove from front) operations, both O(1). It is used for task scheduling and breadth-first search, whereas a stack is LIFO."
+    },
+    {
+      "question": "How does a hash table work, and what are its average and worst-case lookup times?",
+      "answer": "A hash table uses a hash function to map keys to array indices, giving O(1) average insertion, lookup, and deletion. Worst case is O(n) when many keys collide into the same bucket."
+    },
+    {
+      "question": "What is a hash collision, and how can it be handled?",
+      "answer": "A collision occurs when two different keys hash to the same index. Common solutions are chaining (storing a list of entries per bucket) and open addressing (probing for another free slot, e.g., linear probing)."
+    },
+    {
+      "question": "What is a binary search tree (BST), and what is its key property?",
+      "answer": "A BST is a binary tree where each node's left subtree contains smaller values and its right subtree contains larger values. Search, insert, and delete take O(log n) on average but degrade to O(n) if the tree becomes unbalanced."
+    },
+    {
+      "question": "Why do self-balancing trees such as AVL and Red-Black trees matter?",
+      "answer": "They maintain a height of O(log n) by performing rotations after insertions and deletions. This guarantees O(log n) worst-case search, insert, and delete, avoiding the degenerate linear shape of a plain BST."
+    },
+    {
+      "question": "What is a heap, and what is it commonly used for?",
+      "answer": "A heap is a complete binary tree where each parent is ordered relative to its children (min-heap: parent ≤ children; max-heap: parent ≥ children). It supports O(log n) insert and extract-min/max, and it underlies priority queues and heapsort."
+    },
+    {
+      "question": "What is the difference between a tree and a graph?",
+      "answer": "A tree is a connected, acyclic graph with a single path between any two nodes and a designated root in the rooted case. A general graph may have cycles, multiple components, and directed or weighted edges."
+    },
+    {
+      "question": "Compare adjacency list and adjacency matrix representations of a graph.",
+      "answer": "An adjacency matrix uses O(V²) space and checks edge existence in O(1), which suits dense graphs. An adjacency list uses O(V+E) space and iterates over neighbors efficiently, which suits sparse graphs."
+    },
+    {
+      "question": "How do BFS and DFS traverse a graph, and which data structure does each use?",
+      "answer": "BFS explores level by level using a queue and finds shortest paths in unweighted graphs. DFS goes as deep as possible before backtracking using a stack (or recursion). Both run in O(V+E)."
+    }
+  ]
+}
