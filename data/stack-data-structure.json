@@ -1,0 +1,54 @@
+{
+  "topic": "Stack Data Structure",
+  "createdAt": "2026-11-09T11:38:56.468Z",
+  "cards": [
+    {
+      "question": "What is a stack?",
+      "answer": "A stack is a linear data structure that follows the Last-In, First-Out (LIFO) principle: the most recently added element is the first one removed. All insertions and removals happen at one end, called the top."
+    },
+    {
+      "question": "What are the core operations of a stack?",
+      "answer": "push (add an element to the top), pop (remove and return the top element), and peek/top (view the top element without removing it). Many implementations also provide isEmpty and size."
+    },
+    {
+      "question": "What is the time complexity of push, pop, and peek on a stack?",
+      "answer": "All three are O(1) in a standard implementation, since they only touch the top element. With a dynamic array, push is amortized O(1) because of occasional resizing."
+    },
+    {
+      "question": "What is stack overflow vs. stack underflow?",
+      "answer": "Stack overflow occurs when pushing onto a full stack (fixed capacity or exhausted call stack memory). Stack underflow occurs when popping or peeking from an empty stack."
+    },
+    {
+      "question": "What are two common ways to implement a stack?",
+      "answer": "Using an array (or dynamic array) with a top index, or using a singly linked list where the head is the top. Arrays offer better cache locality; linked lists grow without resizing but use extra memory per node."
+    },
+    {
+      "question": "How does the call stack relate to the stack data structure?",
+      "answer": "The call stack stores stack frames (parameters, local variables, return address) for active function calls in LIFO order. Each call pushes a frame and each return pops it; excessively deep recursion causes a stack overflow."
+    },
+    {
+      "question": "How can a stack be used to check for balanced parentheses?",
+      "answer": "Push each opening bracket onto the stack; on a closing bracket, pop and verify it matches the corresponding opener. The string is balanced if no mismatches occur and the stack is empty at the end."
+    },
+    {
+      "question": "How do you evaluate a postfix (Reverse Polish) expression using a stack?",
+      "answer": "Scan tokens left to right: push operands onto the stack; on an operator, pop two operands, apply the operator, and push the result. The final remaining value is the answer."
+    },
+    {
+      "question": "What are common real-world applications of stacks?",
+      "answer": "Undo/redo functionality, browser back navigation, function call management, expression parsing and evaluation, and depth-first search (DFS). Backtracking algorithms also rely on stacks."
+    },
+    {
+      "question": "How can you reverse a string or list using a stack?",
+      "answer": "Push every element onto the stack, then pop them all off; because of LIFO order, they come out in reverse. This takes O(n) time and O(n) extra space."
+    },
+    {
+      "question": "How do you design a stack that returns the minimum element in O(1) time?",
+      "answer": "Maintain an auxiliary stack (or store pairs) that tracks the current minimum at each level. On push, record min(new value, current min); on pop, remove from both, so getMin just reads the top of the min stack."
+    },
+    {
+      "question": "How does a stack differ from a queue?",
+      "answer": "A stack is LIFO, with insertion and removal at the same end, while a queue is FIFO, with insertion at the rear and removal at the front. This makes stacks suited to backtracking and nesting, and queues suited to ordering and scheduling tasks."
+    }
+  ]
+}
