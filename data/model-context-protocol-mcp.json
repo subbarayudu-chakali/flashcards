@@ -1,0 +1,54 @@
+{
+  "topic": "Model Context Protocol (MCP)",
+  "createdAt": "2026-11-09T07:33:26.582Z",
+  "cards": [
+    {
+      "question": "What is the Model Context Protocol (MCP)?",
+      "answer": "MCP is an open protocol, introduced by Anthropic in November 2024, that standardizes how AI applications connect to external data sources, tools, and services. It is often described as a 'USB-C port for AI,' replacing custom one-off integrations with a common interface."
+    },
+    {
+      "question": "What problem does MCP solve?",
+      "answer": "It addresses the 'N×M integration problem,' where every AI app needed a custom connector for every tool or data source. With MCP, a tool implements a server once and any MCP-compatible client can use it."
+    },
+    {
+      "question": "What are the three main roles in MCP's architecture?",
+      "answer": "Host: the AI application the user interacts with (e.g., Claude Desktop, an IDE). Client: a component inside the host that maintains a 1:1 connection with a server. Server: a program that exposes capabilities such as tools, resources, and prompts."
+    },
+    {
+      "question": "What are the three core server primitives in MCP?",
+      "answer": "Tools (executable functions the model can invoke), Resources (data or content the application can read, such as files or database records), and Prompts (reusable templated messages or workflows, typically user-invoked)."
+    },
+    {
+      "question": "What is the difference between Tools, Resources, and Prompts in terms of who controls them?",
+      "answer": "Tools are model-controlled (the LLM decides when to call them), Resources are application-controlled (the host decides what to attach as context), and Prompts are user-controlled (the user explicitly selects them)."
+    },
+    {
+      "question": "What message format does MCP use for communication?",
+      "answer": "MCP uses JSON-RPC 2.0 for messages, including requests, responses, and notifications. This gives a stateful, structured exchange between clients and servers."
+    },
+    {
+      "question": "What are the standard MCP transport mechanisms?",
+      "answer": "stdio (the client launches the server as a local subprocess and communicates over standard input/output) and Streamable HTTP (for remote servers, replacing the earlier HTTP+SSE transport). Both carry the same JSON-RPC messages."
+    },
+    {
+      "question": "What happens during MCP connection initialization?",
+      "answer": "The client sends an initialize request with its protocol version and capabilities, the server replies with its own version and capabilities, and the client then sends an initialized notification. This capability negotiation determines which features are available in the session."
+    },
+    {
+      "question": "What are the main client-side features that MCP servers can request?",
+      "answer": "Sampling (the server asks the client to run an LLM completion), Roots (the client tells the server which filesystem or URI boundaries it may operate in), and Elicitation (the server asks the user for additional input through the client)."
+    },
+    {
+      "question": "How does a client discover and call tools on an MCP server?",
+      "answer": "The client calls tools/list to retrieve tool names, descriptions, and JSON Schema input definitions, then invokes a tool with tools/call providing the name and arguments. The server returns the result content, which can include an error flag."
+    },
+    {
+      "question": "What are key security considerations when using MCP?",
+      "answer": "Risks include prompt injection via tool outputs, malicious or over-privileged servers, tool poisoning, and data exfiltration. Mitigations include user consent and confirmation for tool calls, least-privilege access, trusting only vetted servers, and proper authentication."
+    },
+    {
+      "question": "How does MCP handle authorization for remote servers?",
+      "answer": "MCP's HTTP transport uses an OAuth 2.1-based authorization flow, where the MCP server acts as an OAuth resource server and the client obtains access tokens from an authorization server. Local stdio servers typically rely on environment credentials instead."
+    }
+  ]
+}
