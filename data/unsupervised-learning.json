@@ -1,0 +1,54 @@
+{
+  "topic": "Unsupervised Learning",
+  "createdAt": "2026-11-09T11:33:36.653Z",
+  "cards": [
+    {
+      "question": "What is unsupervised learning?",
+      "answer": "A branch of machine learning where models find patterns or structure in data without labeled outputs. Common goals include clustering, dimensionality reduction, density estimation, and anomaly detection."
+    },
+    {
+      "question": "How does unsupervised learning differ from supervised learning?",
+      "answer": "Supervised learning trains on input-label pairs to predict known targets, while unsupervised learning has no labels and must discover structure on its own. Evaluation is therefore harder and often relies on internal metrics or downstream usefulness."
+    },
+    {
+      "question": "What is clustering, and what are some common clustering algorithms?",
+      "answer": "Clustering groups data points so that points in the same group are more similar to each other than to those in other groups. Common algorithms include K-means, hierarchical clustering, DBSCAN, and Gaussian Mixture Models."
+    },
+    {
+      "question": "How does the K-means algorithm work?",
+      "answer": "It initializes K centroids, then alternates between assigning each point to its nearest centroid and recomputing each centroid as the mean of its assigned points. This repeats until assignments stop changing or convergence is reached."
+    },
+    {
+      "question": "What are the main limitations of K-means?",
+      "answer": "It requires choosing K in advance, is sensitive to initialization and outliers, and assumes roughly spherical, similarly sized clusters. It can converge to local optima, so multiple restarts (or k-means++ initialization) are used."
+    },
+    {
+      "question": "How can you choose the number of clusters K?",
+      "answer": "Common methods include the elbow method (plotting within-cluster variance against K), the silhouette score, and the gap statistic. Domain knowledge and criteria like BIC for Gaussian mixtures can also help."
+    },
+    {
+      "question": "How does DBSCAN work and what are its advantages?",
+      "answer": "DBSCAN groups points that are densely packed, defined by a radius (eps) and a minimum number of neighbors (minPts), and labels points in sparse regions as noise. It finds arbitrarily shaped clusters and does not need K specified, but struggles with varying densities."
+    },
+    {
+      "question": "What is hierarchical clustering?",
+      "answer": "It builds a tree of clusters (dendrogram) either bottom-up (agglomerative, merging closest clusters) or top-down (divisive). Cutting the dendrogram at a chosen level yields a given number of clusters, and linkage (single, complete, average, Ward) defines cluster distance."
+    },
+    {
+      "question": "What is dimensionality reduction and why is it useful?",
+      "answer": "It transforms high-dimensional data into fewer dimensions while preserving important structure. It helps with visualization, noise reduction, storage and computation savings, and mitigating the curse of dimensionality."
+    },
+    {
+      "question": "How does Principal Component Analysis (PCA) work?",
+      "answer": "PCA finds orthogonal directions (principal components) of maximum variance in the data, typically via eigendecomposition of the covariance matrix or SVD. Projecting onto the top components gives a lower-dimensional representation that retains the most variance."
+    },
+    {
+      "question": "How do PCA and t-SNE differ?",
+      "answer": "PCA is a linear method that preserves global variance structure, while t-SNE is a nonlinear method that preserves local neighborhood relationships, mainly for visualization. t-SNE distances between far-apart clusters and cluster sizes are not reliably meaningful."
+    },
+    {
+      "question": "What are Gaussian Mixture Models (GMMs) and how do they differ from K-means?",
+      "answer": "GMMs model data as a mixture of Gaussian distributions fit using the Expectation-Maximization algorithm, giving soft (probabilistic) cluster assignments. Unlike K-means, they can model elliptical clusters with different covariances and sizes."
+    }
+  ]
+}
