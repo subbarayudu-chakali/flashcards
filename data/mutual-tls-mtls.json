@@ -1,0 +1,54 @@
+{
+  "topic": "Mutual TLS (mTLS)",
+  "createdAt": "2026-11-09T07:32:47.610Z",
+  "cards": [
+    {
+      "question": "What is mTLS and how does it differ from standard TLS?",
+      "answer": "Mutual TLS is a form of TLS in which both the client and the server present and verify X.509 certificates. In standard TLS only the server is authenticated, whereas mTLS authenticates both parties."
+    },
+    {
+      "question": "What problem does mTLS solve?",
+      "answer": "It provides strong two-way identity verification plus encrypted, integrity-protected communication. This ensures each side knows who it is talking to, which is critical for service-to-service, API, and zero-trust scenarios."
+    },
+    {
+      "question": "Describe the main steps of an mTLS handshake.",
+      "answer": "The client sends ClientHello and the server responds with its certificate and a CertificateRequest. The client verifies the server certificate and sends its own certificate plus a CertificateVerify (a signature proving private key possession). The server validates the client certificate, then both derive session keys and send Finished messages."
+    },
+    {
+      "question": "What does the server's CertificateRequest message do?",
+      "answer": "It tells the client that the server requires a client certificate, and it can list acceptable certificate authorities and signature algorithms. Without it, the handshake is ordinary one-way TLS."
+    },
+    {
+      "question": "How does a party prove it owns the certificate it presents?",
+      "answer": "It signs handshake data (the CertificateVerify message) with the private key matching the certificate's public key. The peer verifies this signature, so merely copying a certificate without the private key is useless."
+    },
+    {
+      "question": "What is a certificate authority (CA) and what role does it play in mTLS?",
+      "answer": "A CA is a trusted entity that signs certificates to vouch for the identity bound to a public key. In mTLS, each side validates the peer's certificate chain against a trusted CA set (trust store), which is often a private internal CA."
+    },
+    {
+      "question": "Where is mTLS commonly used?",
+      "answer": "It is widely used for service-to-service authentication in microservices and service meshes (e.g., Istio, Linkerd), for securing APIs and B2B integrations, for IoT device authentication, and in zero-trust network architectures."
+    },
+    {
+      "question": "What does a server check when validating a client certificate in mTLS?",
+      "answer": "It checks that the chain leads to a trusted CA, that the certificate is within its validity period, that it is not revoked, and that key usage/extended key usage permits client authentication. It may also check identity fields such as the subject or SAN for authorization."
+    },
+    {
+      "question": "How is revocation handled in mTLS, and why is it challenging?",
+      "answer": "Revocation is checked via CRLs or OCSP (optionally with OCSP stapling), but these add latency and failure-mode complexity. Many deployments instead use short-lived certificates that expire quickly, reducing reliance on revocation."
+    },
+    {
+      "question": "Why is certificate lifecycle management a major operational challenge in mTLS?",
+      "answer": "Every client and server needs issued, distributed, and rotated certificates and keys, and expired certificates cause outages. Automation through tools like cert-manager, SPIFFE/SPIRE, or a service mesh control plane is typically needed at scale."
+    },
+    {
+      "question": "What is the difference between authentication and authorization in the context of mTLS?",
+      "answer": "mTLS authenticates identity by proving who the peer is via its certificate. Authorization, deciding what that identity may access, must be enforced separately, e.g., by mapping the certificate's subject or SAN to policies."
+    },
+    {
+      "question": "What is TLS termination and how does it affect mTLS?",
+      "answer": "A load balancer or proxy that terminates TLS ends the encrypted session, so the backend no longer sees the client's certificate directly. To preserve mTLS, the proxy must itself verify the client certificate and pass identity on securely (e.g., via headers), or re-establish mTLS to the backend."
+    }
+  ]
+}
