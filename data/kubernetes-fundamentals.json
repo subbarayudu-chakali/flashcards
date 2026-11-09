@@ -1,0 +1,54 @@
+{
+  "topic": "Kubernetes Fundamentals",
+  "createdAt": "2026-11-09T07:38:40.960Z",
+  "cards": [
+    {
+      "question": "What is Kubernetes?",
+      "answer": "Kubernetes (K8s) is an open-source container orchestration platform that automates deploying, scaling, and managing containerized applications across a cluster of machines. It was originally developed by Google and is now maintained by the CNCF."
+    },
+    {
+      "question": "What is a Pod in Kubernetes?",
+      "answer": "A Pod is the smallest deployable unit in Kubernetes, consisting of one or more tightly coupled containers that share the same network namespace (IP and ports) and can share storage volumes. Pods are ephemeral and are usually managed by higher-level controllers."
+    },
+    {
+      "question": "What are the main components of the Kubernetes control plane?",
+      "answer": "The control plane includes the kube-apiserver (the API front end), etcd (the key-value store for cluster state), kube-scheduler (assigns Pods to nodes), and kube-controller-manager (runs controllers that reconcile desired and actual state). In cloud setups, a cloud-controller-manager is also included."
+    },
+    {
+      "question": "What components run on each worker node?",
+      "answer": "Each node runs the kubelet (ensures containers in Pods are running as specified), kube-proxy (maintains network rules for Service routing), and a container runtime such as containerd or CRI-O."
+    },
+    {
+      "question": "What is a Deployment?",
+      "answer": "A Deployment is a controller that declaratively manages a set of identical Pods through ReplicaSets. It provides rolling updates, rollbacks, and scaling so the desired number of replicas is maintained."
+    },
+    {
+      "question": "What is a ReplicaSet and how does it relate to a Deployment?",
+      "answer": "A ReplicaSet ensures a specified number of identical Pod replicas are running at any time. Deployments create and manage ReplicaSets, using a new one for each rollout of a changed Pod template."
+    },
+    {
+      "question": "What is a Service and why is it needed?",
+      "answer": "A Service provides a stable virtual IP and DNS name that load-balances traffic to a dynamic set of Pods selected by labels. It is needed because Pod IPs change as Pods are created and destroyed."
+    },
+    {
+      "question": "What are the main Service types?",
+      "answer": "ClusterIP exposes the Service only inside the cluster (default), NodePort exposes it on a static port on each node, and LoadBalancer provisions an external cloud load balancer. ExternalName maps the Service to an external DNS name."
+    },
+    {
+      "question": "What are labels and selectors?",
+      "answer": "Labels are key-value pairs attached to objects such as Pods to identify them, and selectors query objects by those labels. Services, Deployments, and ReplicaSets use selectors to determine which Pods they manage or route to."
+    },
+    {
+      "question": "What is the difference between a ConfigMap and a Secret?",
+      "answer": "A ConfigMap stores non-sensitive configuration data as key-value pairs, while a Secret stores sensitive data such as passwords or tokens. Both can be injected as environment variables or mounted as files, but Secrets are only base64-encoded by default and should be protected with encryption at rest and RBAC."
+    },
+    {
+      "question": "What is a Namespace?",
+      "answer": "A Namespace is a logical partition within a cluster used to group and isolate resources, apply resource quotas, and scope access control. Names must be unique within a namespace but not across namespaces."
+    },
+    {
+      "question": "What is the Kubernetes declarative model and the reconciliation loop?",
+      "answer": "You declare the desired state of resources in YAML manifests, and controllers continuously compare it with the actual state, taking action to make them match. This lets Kubernetes self-heal, for example by restarting failed Pods or rescheduling them to healthy nodes."
+    }
+  ]
+}
