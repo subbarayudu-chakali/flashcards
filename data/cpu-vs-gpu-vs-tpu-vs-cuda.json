@@ -1,0 +1,54 @@
+{
+  "topic": "CPU vs GPU vs TPU vs CUDA",
+  "createdAt": "2026-11-09T07:38:06.871Z",
+  "cards": [
+    {
+      "question": "What is a CPU and what is it optimized for?",
+      "answer": "A CPU (Central Processing Unit) is a general-purpose processor with a few powerful cores optimized for low-latency, sequential, and branch-heavy tasks. It handles operating systems, application logic, and diverse workloads."
+    },
+    {
+      "question": "What is a GPU and how does its architecture differ from a CPU's?",
+      "answer": "A GPU (Graphics Processing Unit) has hundreds to thousands of simpler cores designed for massive parallelism and high throughput. It excels at running the same operation across many data elements at once, unlike the CPU's few complex cores."
+    },
+    {
+      "question": "What is a TPU and who developed it?",
+      "answer": "A TPU (Tensor Processing Unit) is an application-specific integrated circuit (ASIC) designed by Google to accelerate machine learning, especially tensor and matrix operations. It is tuned for neural network training and inference."
+    },
+    {
+      "question": "What is CUDA?",
+      "answer": "CUDA (Compute Unified Device Architecture) is NVIDIA's parallel computing platform and programming model. It lets developers write code that runs general-purpose computations on NVIDIA GPUs, typically in C/C++ extensions."
+    },
+    {
+      "question": "Is CUDA hardware or software? How does it relate to GPUs?",
+      "answer": "CUDA is software: a platform comprising a programming model, compiler (nvcc), libraries, and runtime. It runs only on NVIDIA GPUs, which are the hardware."
+    },
+    {
+      "question": "Why are GPUs well suited for deep learning?",
+      "answer": "Deep learning relies on large matrix multiplications and element-wise operations that can be parallelized across many cores. GPUs provide high throughput and memory bandwidth for these workloads, making training far faster than on CPUs."
+    },
+    {
+      "question": "What is the core operation TPUs accelerate, and what hardware feature enables it?",
+      "answer": "TPUs accelerate matrix multiplication using a systolic array of multiply-accumulate units. Data flows through the array so values are reused without repeated memory access, boosting efficiency."
+    },
+    {
+      "question": "Compare latency vs throughput orientation in CPUs and GPUs.",
+      "answer": "CPUs are latency-oriented: they finish individual tasks quickly using large caches and complex control logic. GPUs are throughput-oriented: they process many tasks simultaneously, tolerating individual task latency."
+    },
+    {
+      "question": "What are the CUDA concepts of kernel, thread, and block?",
+      "answer": "A kernel is a function that runs on the GPU. It is executed by many threads, which are grouped into blocks, and blocks form a grid. Threads in a block can share fast memory and synchronize."
+    },
+    {
+      "question": "What are the main trade-offs between CPU, GPU, and TPU in flexibility and specialization?",
+      "answer": "CPUs are the most flexible but slowest for massively parallel math. GPUs are programmable and strong for parallel workloads including graphics and ML. TPUs are the most specialized, offering top efficiency for tensor operations but less flexibility."
+    },
+    {
+      "question": "Which frameworks commonly use CUDA and TPUs?",
+      "answer": "PyTorch and TensorFlow use CUDA (via libraries like cuDNN and cuBLAS) to run on NVIDIA GPUs. TPUs are used mainly through TensorFlow, JAX, and PyTorch/XLA via the XLA compiler, often on Google Cloud."
+    },
+    {
+      "question": "When should you choose a CPU, GPU, or TPU?",
+      "answer": "Use a CPU for general logic, small models, and light inference; a GPU for flexible, parallel workloads like graphics and most deep learning training; and a TPU for large-scale tensor-heavy ML training or inference, especially on Google Cloud."
+    }
+  ]
+}
