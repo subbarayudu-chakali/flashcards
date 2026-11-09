@@ -1,0 +1,54 @@
+{
+  "topic": "DevOps Fundamentals",
+  "createdAt": "2026-11-09T11:34:14.712Z",
+  "cards": [
+    {
+      "question": "What is DevOps?",
+      "answer": "DevOps is a culture and set of practices that unites software development (Dev) and IT operations (Ops) to shorten the delivery lifecycle and deliver software faster, more reliably, and with continuous improvement. It emphasizes collaboration, automation, and shared responsibility."
+    },
+    {
+      "question": "What is Continuous Integration (CI)?",
+      "answer": "CI is the practice of frequently merging code changes into a shared repository, where each merge triggers automated builds and tests. It catches integration bugs early and keeps the main branch in a healthy state."
+    },
+    {
+      "question": "What is the difference between Continuous Delivery and Continuous Deployment?",
+      "answer": "Continuous Delivery ensures every change that passes automated tests is ready to release, but the final push to production requires manual approval. Continuous Deployment removes that manual step and automatically releases every passing change to production."
+    },
+    {
+      "question": "What is a CI/CD pipeline?",
+      "answer": "A CI/CD pipeline is an automated workflow that moves code through stages such as build, test, security scan, artifact packaging, and deployment. It provides fast, repeatable feedback and reduces manual errors."
+    },
+    {
+      "question": "What is Infrastructure as Code (IaC)?",
+      "answer": "IaC is managing and provisioning infrastructure through machine-readable definition files rather than manual configuration. Tools like Terraform, Pulumi, and AWS CloudFormation make environments versioned, repeatable, and reviewable."
+    },
+    {
+      "question": "What is the difference between declarative and imperative approaches in IaC?",
+      "answer": "Declarative IaC (e.g., Terraform) describes the desired end state and the tool determines how to reach it. Imperative IaC specifies the exact sequence of commands to execute, giving more control but less idempotency by default."
+    },
+    {
+      "question": "What is containerization and why is it useful in DevOps?",
+      "answer": "Containerization packages an application with its dependencies into a lightweight, isolated unit that runs consistently across environments. Docker is the common tool, and containers solve 'works on my machine' problems while enabling fast, portable deployments."
+    },
+    {
+      "question": "What is Kubernetes?",
+      "answer": "Kubernetes is an open-source container orchestration platform that automates deployment, scaling, networking, and self-healing of containerized applications across clusters of machines. It uses declarative manifests to maintain the desired state."
+    },
+    {
+      "question": "What are the key DevOps practices for monitoring and observability?",
+      "answer": "Teams collect metrics, logs, and traces to understand system health and diagnose problems, using tools like Prometheus, Grafana, and the ELK stack. Alerting on meaningful signals enables fast detection and response to incidents."
+    },
+    {
+      "question": "What are the four DORA metrics?",
+      "answer": "Deployment frequency, lead time for changes, change failure rate, and time to restore service. Together they measure both the speed and stability of software delivery."
+    },
+    {
+      "question": "What is a blue-green deployment?",
+      "answer": "Blue-green deployment runs two identical production environments, one live (blue) and one idle (green). New versions are deployed to green and traffic is switched over once verified, allowing instant rollback by switching back."
+    },
+    {
+      "question": "What does 'shift left' mean in DevOps?",
+      "answer": "Shift left means moving activities like testing, security checks, and quality validation earlier in the development lifecycle. Finding defects sooner makes them cheaper and faster to fix."
+    }
+  ]
+}
