@@ -1,0 +1,54 @@
+{
+  "topic": "MLflow",
+  "createdAt": "2026-11-09T07:35:28.462Z",
+  "cards": [
+    {
+      "question": "What is MLflow and what problem does it solve?",
+      "answer": "MLflow is an open-source platform for managing the end-to-end machine learning lifecycle. It addresses experiment tracking, reproducibility, model packaging, deployment, and model versioning across different ML libraries and tools."
+    },
+    {
+      "question": "What are the four classic core components of MLflow?",
+      "answer": "MLflow Tracking (log and query experiments), MLflow Projects (reproducible packaging of code), MLflow Models (standard model packaging format), and the Model Registry (centralized model versioning and lifecycle management)."
+    },
+    {
+      "question": "What is the difference between an experiment and a run in MLflow Tracking?",
+      "answer": "A run is a single execution of model code that records parameters, metrics, tags, and artifacts. An experiment is a named group of related runs, used to organize and compare them."
+    },
+    {
+      "question": "What kinds of data can you log in an MLflow run, and which functions do it?",
+      "answer": "Parameters (mlflow.log_param), metrics (mlflow.log_metric, can be logged over steps), tags (mlflow.set_tag), and artifacts (mlflow.log_artifact), such as files, plots, and models."
+    },
+    {
+      "question": "What is the difference between a parameter and a metric in MLflow?",
+      "answer": "Parameters are input configuration values (e.g., learning rate) stored as strings and logged once per run. Metrics are numeric outputs (e.g., accuracy, loss) that can be updated multiple times and tracked over steps or time."
+    },
+    {
+      "question": "What is MLflow autologging and how do you enable it?",
+      "answer": "Autologging automatically captures parameters, metrics, models, and artifacts from supported libraries (scikit-learn, PyTorch, XGBoost, etc.) without explicit log calls. Enable it with mlflow.autolog() or a flavor-specific call like mlflow.sklearn.autolog()."
+    },
+    {
+      "question": "What are the backend store and artifact store in an MLflow tracking server?",
+      "answer": "The backend store holds metadata (runs, params, metrics, tags), typically a SQL database or file system. The artifact store holds large files like models and plots, typically on S3, Azure Blob, GCS, or a local/NFS path."
+    },
+    {
+      "question": "What is an MLflow Model \"flavor\"?",
+      "answer": "A flavor is a convention that lets tools understand how to load and serve a model from a given library (e.g., sklearn, pytorch, python_function). The generic python_function (pyfunc) flavor offers a uniform interface for any model."
+    },
+    {
+      "question": "What is the MLmodel file and what does it contain?",
+      "answer": "MLmodel is a YAML file in a saved model directory describing its flavors, the model signature, the MLflow version, and metadata. Alongside it are environment files such as conda.yaml and requirements.txt for reproducibility."
+    },
+    {
+      "question": "What is a model signature in MLflow?",
+      "answer": "A signature defines the expected schema of a model's inputs and outputs (column names and types or tensor shapes). It enables input validation at inference time and can be inferred using mlflow.models.infer_signature."
+    },
+    {
+      "question": "What does the MLflow Model Registry provide?",
+      "answer": "A central repository for registered models with versioning, aliases (or legacy stages like Staging/Production), annotations, and lineage back to the run that produced each version. It supports governance and controlled promotion of models to production."
+    },
+    {
+      "question": "How can you serve an MLflow model and load it for inference?",
+      "answer": "Use `mlflow models serve -m <model_uri>` to start a REST API server, or load it in Python with mlflow.pyfunc.load_model(model_uri) and call predict(). Model URIs can look like runs:/<run_id>/model or models:/<name>/<version>."
+    }
+  ]
+}
