@@ -2,22 +2,46 @@
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flashcards</title>
 <style>
-body{font-family:system-ui,sans-serif;margin:0;background:#f4f5f7;color:#222}
-header{background:#1f2937;color:#fff;padding:16px 24px}
-main{display:flex;min-height:calc(100vh - 60px)}
-nav{width:260px;background:#fff;border-right:1px solid #ddd;padding:12px;box-sizing:border-box}
-nav button{display:block;width:100%;text-align:left;padding:10px;margin-bottom:6px;border:0;border-radius:6px;background:#eef;cursor:pointer;font-size:15px}
-nav button.active{background:#4f46e5;color:#fff}
-section{flex:1;padding:24px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.15);padding:20px;min-height:120px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center}
-.card.flipped{background:#4f46e5;color:#fff}
-.hint{color:#666;margin-bottom:16px}
+:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#172033;background:#edf2f7}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{overflow:hidden;background:radial-gradient(circle at 85% 0,#dbeafe 0,transparent 34%),#edf2f7}
+header{height:76px;display:flex;align-items:center;padding:0 clamp(20px,4vw,48px);background:#172033;color:#fff}
+header h1{margin:0;font-size:clamp(22px,3vw,30px);letter-spacing:-.02em}
+header p{margin:4px 0 0 14px;color:#aebbd0;font-size:13px}
+main{display:flex;height:calc(100vh - 76px);min-height:0}
+nav{width:280px;flex:none;overflow-y:auto;padding:24px 16px;background:rgba(255,255,255,.82);border-right:1px solid #d5deea}
+nav:before{content:'TOPICS';display:block;margin:0 10px 12px;color:#718096;font-size:11px;font-weight:800;letter-spacing:.14em}
+nav button{display:block;width:100%;margin-bottom:6px;padding:12px 14px;border:1px solid transparent;border-radius:8px;background:transparent;color:#42516a;cursor:pointer;font:inherit;font-size:14px;text-align:left;text-transform:capitalize;transition:background .15s,color .15s,transform .15s}
+nav button:hover{background:#e8eef7;color:#172033;transform:translateX(2px)}
+nav button.active{background:#2563eb;color:#fff;box-shadow:0 5px 12px rgba(37,99,235,.22)}
+section{flex:1;min-width:0;min-height:0;overflow-y:auto;padding:clamp(24px,4vw,48px)}
+.content{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 8px;color:#2563eb;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+section h2{margin:0;color:#172033;font-size:clamp(25px,4vw,38px);letter-spacing:-.03em}
+.hint{margin:10px 0 28px;color:#617089;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:18px;padding-bottom:24px}
+.card{position:relative;min-height:170px;padding:24px;border:1px solid #dce5f0;border-radius:12px;background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(37,55,80,.08);color:#26354d;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;font-size:16px;line-height:1.55;transition:transform .18s,box-shadow .18s,border-color .18s}
+.card:after{content:'↗';position:absolute;right:14px;top:10px;color:#9aa8bb;font-size:14px}
+.card:hover{border-color:#9bbcf7;box-shadow:0 12px 28px rgba(37,55,80,.14);transform:translateY(-3px)}
+.card.flipped{border-color:#2563eb;background:#2563eb;color:#fff;box-shadow:0 12px 28px rgba(37,99,235,.25)}
+.card.flipped:after{color:#bfdbfe}
+@media (max-width:700px){
+  body{overflow:auto}
+  header{height:auto;min-height:70px;align-items:flex-start;flex-direction:column;justify-content:center}
+  header p{margin:3px 0 0;font-size:12px}
+  main{height:auto;min-height:calc(100vh - 70px);display:block}
+  nav{width:auto;max-height:180px;border-right:0;border-bottom:1px solid #d5deea;padding:14px 16px}
+  nav:before{margin-bottom:8px}
+  nav button{display:inline-block;width:auto;margin:0 5px 5px 0;padding:9px 12px}
+  section{overflow:visible;padding:28px 18px}
+  .grid{grid-template-columns:1fr}
+}
 </style></head>
 <body>
-<header><h1 style="margin:0">Flashcards</h1></header>
+<header><h1>Flashcards</h1><p>Learn a little. Remember a lot.</p></header>
 <main><nav id="topics">Loading topics...</nav>
-<section><div class="hint" id="hint">Pick a topic, then click a card to flip it.</div><div class="grid" id="cards"></div></section></main>
+<section><div class="content"><p class="eyebrow">Study deck</p><h2 id="topic-title">Choose a topic</h2><div class="hint" id="hint">Pick a topic, then click a card to flip it.</div><div class="grid" id="cards"></div></div></section></main>
 <script>
 var owner = location.hostname.split('.')[0];
 var repo = location.pathname.split('/')[1];
@@ -27,6 +51,7 @@ function showTopic(file, btn) {
   Array.prototype.forEach.call(topicsEl.children, function (b) { b.className = ''; });
   btn.className = 'active';
   fetch('data/' + file).then(function (r) { return r.json(); }).then(function (t) {
+    document.getElementById('topic-title').textContent = t.topic;
     document.getElementById('hint').textContent = t.topic + ' - ' + t.cards.length + ' cards';
     cardsEl.innerHTML = '';
     t.cards.forEach(function (c) {
@@ -43,17 +68,36 @@ function showTopic(file, btn) {
     });
   });
 }
-fetch('https://api.github.com/repos/' + owner + '/' + repo + '/contents/data')
-  .then(function (r) { return r.json(); })
+function discoverFromDirectory() {
+  return fetch('data/').then(function (r) {
+    if (!r.ok) { throw new Error('Data directory unavailable'); }
+    return r.text();
+  }).then(function (html) {
+    var documentFragment = new DOMParser().parseFromString(html, 'text/html');
+    var files = Array.prototype.map.call(documentFragment.querySelectorAll('a[href$=".json"]'), function (link) {
+      return { name: decodeURIComponent(link.getAttribute('href')) };
+    });
+    if (!files.length) { throw new Error('No JSON files found'); }
+    return files;
+  });
+}
+var topicFilesRequest = discoverFromDirectory().catch(function () {
+  return fetch('https://api.github.com/repos/' + owner + '/' + repo + '/contents/data').then(function (r) { return r.json(); });
+});
+topicFilesRequest
   .then(function (files) {
     topicsEl.innerHTML = '';
     if (!Array.isArray(files) || !files.length) { topicsEl.textContent = 'No topics yet.'; return; }
-    files.filter(function (f) { return /[.]json$/.test(f.name); }).forEach(function (f) {
+    var jsonFiles = files.filter(function (f) { return /[.]json$/.test(f.name); });
+    var firstButton = null;
+    jsonFiles.forEach(function (f) {
       var b = document.createElement('button');
       b.textContent = f.name.replace(/[.]json$/, '').replace(/-/g, ' ');
       b.onclick = function () { showTopic(f.name, b); };
       topicsEl.appendChild(b);
+      if (!firstButton) { firstButton = b; }
     });
+    if (firstButton) { firstButton.click(); }
   })
   .catch(function () { topicsEl.textContent = 'Could not load topics.'; });
 </script></body></html>
