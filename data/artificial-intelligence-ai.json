@@ -1,0 +1,54 @@
+{
+  "topic": "Artificial Intelligence (AI)",
+  "createdAt": "2026-11-09T11:32:40.698Z",
+  "cards": [
+    {
+      "question": "What is Artificial Intelligence (AI)?",
+      "answer": "AI is the field of computer science focused on building systems that perform tasks normally requiring human intelligence, such as learning, reasoning, perception, problem-solving, and language understanding."
+    },
+    {
+      "question": "What is the difference between narrow AI and general AI (AGI)?",
+      "answer": "Narrow AI is designed for specific tasks (e.g., spam filtering, image recognition) and is what exists today. Artificial General Intelligence would match human-level ability across a wide range of tasks and remains hypothetical."
+    },
+    {
+      "question": "How do AI, machine learning, and deep learning relate to each other?",
+      "answer": "Machine learning is a subset of AI where systems learn patterns from data, and deep learning is a subset of machine learning that uses multi-layered neural networks. Each is nested within the broader category before it."
+    },
+    {
+      "question": "What is machine learning?",
+      "answer": "Machine learning is a method in which algorithms improve their performance on a task by learning from data rather than following explicitly programmed rules."
+    },
+    {
+      "question": "What are the three main types of machine learning?",
+      "answer": "Supervised learning uses labeled data, unsupervised learning finds patterns in unlabeled data, and reinforcement learning learns through rewards and penalties from interacting with an environment."
+    },
+    {
+      "question": "What is a neural network?",
+      "answer": "A neural network is a model made of interconnected layers of nodes (neurons) that apply weights and activation functions to inputs. It learns by adjusting weights to reduce prediction error, typically via backpropagation."
+    },
+    {
+      "question": "What is the Turing Test?",
+      "answer": "Proposed by Alan Turing in 1950, it tests whether a machine can converse so convincingly that a human judge cannot reliably tell it apart from a human. It is a benchmark for machine intelligence, though widely debated."
+    },
+    {
+      "question": "What is overfitting in machine learning?",
+      "answer": "Overfitting occurs when a model learns the training data too closely, including noise, and performs poorly on new, unseen data. It can be reduced with more data, regularization, simpler models, or cross-validation."
+    },
+    {
+      "question": "Why are training data and data quality so important in AI?",
+      "answer": "A model's performance depends on the data it learns from, so incomplete, noisy, or unrepresentative data leads to inaccurate or unreliable results. Biased data can produce biased outputs."
+    },
+    {
+      "question": "What is natural language processing (NLP)?",
+      "answer": "NLP is the branch of AI that enables computers to understand, interpret, and generate human language. Applications include translation, chatbots, sentiment analysis, and summarization."
+    },
+    {
+      "question": "What is generative AI, and what is a large language model (LLM)?",
+      "answer": "Generative AI creates new content such as text, images, audio, or code based on patterns learned from data. An LLM is a generative model trained on vast text datasets, typically using transformer architecture, to predict and generate language."
+    },
+    {
+      "question": "What are major ethical concerns surrounding AI?",
+      "answer": "Key concerns include algorithmic bias and fairness, privacy and data use, lack of transparency (the \"black box\" problem), job displacement, misinformation, and accountability for AI-driven decisions."
+    }
+  ]
+}
