@@ -1,0 +1,54 @@
+{
+  "topic": "Docker Fundamentals",
+  "createdAt": "2026-11-09T07:38:26.182Z",
+  "cards": [
+    {
+      "question": "What is Docker?",
+      "answer": "Docker is an open-source platform that packages applications and their dependencies into lightweight, portable units called containers. Containers run consistently across environments because they bundle everything the app needs."
+    },
+    {
+      "question": "What is the difference between a Docker image and a container?",
+      "answer": "An image is a read-only template containing the app, libraries, and filesystem layers. A container is a running (or stopped) instance of an image with a writable layer on top."
+    },
+    {
+      "question": "How do containers differ from virtual machines?",
+      "answer": "Containers share the host OS kernel and isolate processes, making them lightweight and fast to start. VMs include a full guest OS on top of a hypervisor, using more resources and starting slower."
+    },
+    {
+      "question": "What is a Dockerfile?",
+      "answer": "A Dockerfile is a text file with ordered instructions (e.g., FROM, COPY, RUN, CMD) that Docker uses to build an image automatically via `docker build`."
+    },
+    {
+      "question": "What is the difference between CMD and ENTRYPOINT in a Dockerfile?",
+      "answer": "ENTRYPOINT defines the main executable that always runs when the container starts, while CMD provides default arguments or a default command that can be overridden at `docker run`. They are often combined: ENTRYPOINT for the program, CMD for default args."
+    },
+    {
+      "question": "What are Docker image layers and why do they matter?",
+      "answer": "Each Dockerfile instruction creates a read-only layer, and layers are cached and shared between images. This speeds up builds and saves storage, so ordering instructions from least to most frequently changing optimizes caching."
+    },
+    {
+      "question": "What does `docker run -d -p 8080:80 nginx` do?",
+      "answer": "It starts an nginx container in detached (background) mode and maps host port 8080 to container port 80. The image is pulled automatically if not available locally."
+    },
+    {
+      "question": "What is Docker Hub?",
+      "answer": "Docker Hub is the default public registry for storing and sharing Docker images. You can pull official images from it and push your own with `docker pull` and `docker push`."
+    },
+    {
+      "question": "How do you persist data in Docker, and what are the main options?",
+      "answer": "Container filesystems are ephemeral, so use volumes (managed by Docker, preferred) or bind mounts (map a host directory) to persist data. A tmpfs mount stores data in memory only."
+    },
+    {
+      "question": "What is Docker Compose?",
+      "answer": "Docker Compose is a tool for defining and running multi-container applications using a YAML file (compose.yaml). Commands like `docker compose up` start all the services, networks, and volumes together."
+    },
+    {
+      "question": "How do containers communicate with each other in Docker?",
+      "answer": "Containers on the same user-defined bridge network can reach each other by container or service name via built-in DNS. Ports are only exposed to the host when published with `-p`."
+    },
+    {
+      "question": "What is a multi-stage build and why use it?",
+      "answer": "A multi-stage build uses multiple FROM statements in one Dockerfile, letting you compile in one stage and copy only the final artifacts into a slim runtime stage. This produces smaller, more secure images."
+    }
+  ]
+}
