@@ -1,0 +1,54 @@
+{
+  "topic": "gRPC",
+  "createdAt": "2026-11-09T07:32:27.828Z",
+  "cards": [
+    {
+      "question": "What is gRPC?",
+      "answer": "gRPC is an open-source, high-performance Remote Procedure Call (RPC) framework originally developed by Google. It lets a client call methods on a remote server as if they were local functions, using HTTP/2 for transport and Protocol Buffers as the default serialization format."
+    },
+    {
+      "question": "What is Protocol Buffers (protobuf) and what role does it play in gRPC?",
+      "answer": "Protocol Buffers is a language-neutral, binary serialization format and interface definition language. In gRPC, .proto files define the service methods and message types, and the protobuf compiler generates client and server code from them."
+    },
+    {
+      "question": "What are the four types of gRPC service methods?",
+      "answer": "Unary (one request, one response), server streaming (one request, stream of responses), client streaming (stream of requests, one response), and bidirectional streaming (both sides send streams independently)."
+    },
+    {
+      "question": "Which transport protocol does gRPC use, and what HTTP/2 features make it efficient?",
+      "answer": "gRPC runs over HTTP/2. It benefits from multiplexing multiple calls over a single connection, binary framing, header compression (HPACK), flow control, and full-duplex streaming."
+    },
+    {
+      "question": "What is the purpose of the `.proto` file in a gRPC project?",
+      "answer": "It is the contract between client and server, defining services, RPC methods, and request/response message schemas. Code generators use it to produce strongly typed stubs in many languages."
+    },
+    {
+      "question": "What is a stub in gRPC?",
+      "answer": "A stub is the generated client-side object that exposes the service's methods locally and handles serialization, network calls, and deserialization. The server implements a generated base class or interface for the same service."
+    },
+    {
+      "question": "How does gRPC compare with REST?",
+      "answer": "gRPC uses binary protobuf over HTTP/2 with a strict contract, giving smaller payloads, lower latency, and native streaming. REST typically uses JSON over HTTP/1.1 or 2, is human-readable and more browser-friendly, but is less strictly typed and lacks built-in streaming."
+    },
+    {
+      "question": "What are deadlines (timeouts) in gRPC and why are they important?",
+      "answer": "A deadline specifies how long a client is willing to wait for an RPC to complete before it is aborted with a DEADLINE_EXCEEDED error. They prevent resources from being tied up indefinitely and can propagate across chained service calls."
+    },
+    {
+      "question": "How does gRPC handle errors?",
+      "answer": "gRPC returns a status code (such as OK, NOT_FOUND, INVALID_ARGUMENT, UNAVAILABLE, DEADLINE_EXCEEDED) with an optional message and details. This standardized set of codes works across all languages, unlike HTTP status codes."
+    },
+    {
+      "question": "What is metadata in gRPC?",
+      "answer": "Metadata is a set of key-value pairs sent with requests or responses, similar to HTTP headers. It is commonly used for authentication tokens, tracing IDs, and other call-specific information outside the message body."
+    },
+    {
+      "question": "What are interceptors in gRPC?",
+      "answer": "Interceptors are middleware hooks on the client or server that wrap RPC calls. They are used for cross-cutting concerns such as logging, authentication, metrics, retries, and tracing."
+    },
+    {
+      "question": "What are common limitations of gRPC, and how is browser support addressed?",
+      "answer": "Browsers can't directly use full gRPC because they lack control over HTTP/2 framing and trailers, and binary payloads are harder to debug. gRPC-Web, with a proxy such as Envoy, or a gateway like grpc-gateway, enables browser and REST-style access."
+    }
+  ]
+}
