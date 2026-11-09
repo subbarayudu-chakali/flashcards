@@ -1,0 +1,54 @@
+{
+  "topic": "Blockchain Fundamentals",
+  "createdAt": "2026-11-09T11:41:10.466Z",
+  "cards": [
+    {
+      "question": "What is a blockchain?",
+      "answer": "A blockchain is a distributed, append-only digital ledger that records transactions in linked blocks across a network of computers. Each block is cryptographically tied to the previous one, making past records very difficult to alter."
+    },
+    {
+      "question": "What is a block and what does it typically contain?",
+      "answer": "A block is a batch of validated transactions bundled together. It typically contains a list of transactions, a timestamp, the hash of the previous block, and a nonce or other consensus-related data."
+    },
+    {
+      "question": "What is a cryptographic hash function and why is it important in blockchain?",
+      "answer": "A hash function converts input data of any size into a fixed-length output that is deterministic, one-way, and highly sensitive to changes in the input. In blockchain, hashes link blocks together and make tampering easy to detect."
+    },
+    {
+      "question": "How does blockchain achieve immutability?",
+      "answer": "Each block stores the hash of the previous block, so altering one block changes its hash and breaks every subsequent link. An attacker would have to redo the work or gain majority control of the network to rewrite history."
+    },
+    {
+      "question": "What does decentralization mean in the context of blockchain?",
+      "answer": "Decentralization means no single entity controls the ledger; many independent nodes each hold a copy and validate transactions. This reduces single points of failure and the need to trust a central authority."
+    },
+    {
+      "question": "What is a consensus mechanism?",
+      "answer": "A consensus mechanism is a protocol by which network nodes agree on the valid state of the ledger without a central coordinator. Examples include Proof of Work and Proof of Stake."
+    },
+    {
+      "question": "How does Proof of Work (PoW) function?",
+      "answer": "Miners compete to find a nonce that makes a block's hash meet a difficulty target, which requires significant computational effort. The first to succeed adds the block and earns a reward, and others can easily verify the solution."
+    },
+    {
+      "question": "How does Proof of Stake (PoS) differ from Proof of Work?",
+      "answer": "In PoS, validators are chosen to propose and attest to blocks based on the amount of cryptocurrency they lock up as collateral (stake). It uses far less energy than PoW, and dishonest validators risk losing their stake."
+    },
+    {
+      "question": "What is a node in a blockchain network?",
+      "answer": "A node is a computer that participates in the network by storing the ledger and relaying or validating transactions and blocks. Full nodes verify all the rules independently, while light nodes rely on others for much of the data."
+    },
+    {
+      "question": "What is a smart contract?",
+      "answer": "A smart contract is self-executing code stored on a blockchain that automatically enforces the terms of an agreement when predefined conditions are met. Ethereum popularized them, and they power applications like DeFi and NFTs."
+    },
+    {
+      "question": "What is the difference between public, private, and consortium blockchains?",
+      "answer": "Public blockchains (e.g., Bitcoin) are open to anyone to read and participate in. Private blockchains are controlled by a single organization, and consortium blockchains are governed by a group of pre-approved organizations."
+    },
+    {
+      "question": "What is a 51% attack?",
+      "answer": "A 51% attack occurs when a single party controls a majority of a network's mining power or stake, allowing them to double-spend coins or block transactions. It cannot easily create coins from nothing or steal from others' wallets without their keys."
+    }
+  ]
+}
