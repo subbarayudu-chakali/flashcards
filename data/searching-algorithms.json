@@ -1,0 +1,54 @@
+{
+  "topic": "Searching Algorithms",
+  "createdAt": "2026-11-09T11:40:23.821Z",
+  "cards": [
+    {
+      "question": "What is a searching algorithm?",
+      "answer": "A searching algorithm finds the location of a target element (or determines its absence) within a data structure such as an array, list, tree, or graph. Algorithms are commonly grouped into sequential/linear methods and interval-based methods like binary search."
+    },
+    {
+      "question": "How does linear search work, and what is its time complexity?",
+      "answer": "Linear search checks each element in order until it finds the target or reaches the end. It runs in O(n) time in the worst and average cases, O(1) in the best case, and uses O(1) extra space."
+    },
+    {
+      "question": "What precondition does binary search require?",
+      "answer": "The collection must be sorted and allow random (constant-time) access, such as an array. Without sorted order, halving the search space is not valid."
+    },
+    {
+      "question": "How does binary search work, and what is its time complexity?",
+      "answer": "It compares the target with the middle element and discards the half that cannot contain the target, repeating until the element is found or the range is empty. Time complexity is O(log n), with O(1) space for the iterative version."
+    },
+    {
+      "question": "Why is mid often computed as low + (high - low) / 2 instead of (low + high) / 2?",
+      "answer": "The expression (low + high) can overflow fixed-size integers when indices are large. Using low + (high - low) / 2 gives the same midpoint without overflow."
+    },
+    {
+      "question": "When is linear search preferable to binary search?",
+      "answer": "Linear search is preferable when data is unsorted, the collection is small, or it is a linked list with no random access. It also makes sense when you will search only once, so the cost of sorting isn't worth it."
+    },
+    {
+      "question": "What is the space complexity of recursive vs. iterative binary search?",
+      "answer": "Iterative binary search uses O(1) space. Recursive binary search uses O(log n) space due to the call stack."
+    },
+    {
+      "question": "How does Breadth-First Search (BFS) search a graph?",
+      "answer": "BFS explores all neighbors at the current depth level before moving deeper, using a queue. It runs in O(V + E) time and finds the shortest path in unweighted graphs."
+    },
+    {
+      "question": "How does Depth-First Search (DFS) search a graph?",
+      "answer": "DFS follows a path as deep as possible before backtracking, using a stack or recursion. It runs in O(V + E) time and is useful for cycle detection, topological sorting, and exploring connectivity."
+    },
+    {
+      "question": "How does jump search work?",
+      "answer": "Jump search works on sorted arrays by jumping ahead in fixed blocks of size √n until it passes the target, then performing a linear search within that block. Its time complexity is O(√n)."
+    },
+    {
+      "question": "How does interpolation search differ from binary search, and when does it perform well?",
+      "answer": "Instead of always probing the middle, it estimates the target's position based on its value relative to the range's endpoints. It averages O(log log n) on uniformly distributed sorted data but degrades to O(n) on skewed data."
+    },
+    {
+      "question": "How does hashing enable fast searching?",
+      "answer": "A hash function maps a key to an index in a hash table, allowing lookup in O(1) average time. Worst-case time is O(n) when many keys collide, though good hash functions and resizing make this rare."
+    }
+  ]
+}
