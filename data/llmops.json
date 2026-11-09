@@ -1,0 +1,54 @@
+{
+  "topic": "LLMOps",
+  "createdAt": "2026-11-09T11:35:18.538Z",
+  "cards": [
+    {
+      "question": "What is LLMOps?",
+      "answer": "LLMOps (Large Language Model Operations) is the set of practices, tools, and processes for deploying, monitoring, evaluating, and maintaining LLM-based applications in production. It adapts MLOps principles to the unique challenges of LLMs, such as prompt management, high inference cost, and non-deterministic outputs."
+    },
+    {
+      "question": "How does LLMOps differ from traditional MLOps?",
+      "answer": "LLMOps focuses on prompt engineering, pretrained/foundation model selection, fine-tuning or RAG instead of training from scratch, and evaluating open-ended text outputs. It also deals with token-based costs, latency, safety guardrails, and often relies on third-party model APIs."
+    },
+    {
+      "question": "What are the main stages of the LLMOps lifecycle?",
+      "answer": "Model selection, prompt design and/or fine-tuning, data and retrieval pipeline setup (e.g., RAG), evaluation and testing, deployment, and continuous monitoring and iteration. Feedback from production feeds back into earlier stages."
+    },
+    {
+      "question": "What is prompt management and why is it important in LLMOps?",
+      "answer": "Prompt management involves versioning, testing, and deploying prompts and templates like code. Small prompt changes can significantly alter model behavior, so tracking versions enables reproducibility, rollback, and A/B testing."
+    },
+    {
+      "question": "What is Retrieval-Augmented Generation (RAG) and why is it used?",
+      "answer": "RAG retrieves relevant documents from an external knowledge source (often a vector database) and injects them into the prompt at inference time. It grounds answers in up-to-date or private data, reducing hallucinations without retraining the model."
+    },
+    {
+      "question": "When should you choose fine-tuning over prompting or RAG?",
+      "answer": "Fine-tuning is best when you need consistent style, format, or domain-specific behavior, or want to reduce prompt length and latency. RAG is better for injecting changing factual knowledge, while prompting is the cheapest first approach to try."
+    },
+    {
+      "question": "How are LLM applications evaluated?",
+      "answer": "Using a mix of automated metrics (e.g., exact match, BLEU/ROUGE, embedding similarity), LLM-as-a-judge scoring, curated test datasets, and human review. Evaluation checks qualities like accuracy, relevance, faithfulness, toxicity, and safety."
+    },
+    {
+      "question": "What is LLM-as-a-judge and what is one limitation?",
+      "answer": "It uses a strong LLM to grade or compare outputs against criteria such as correctness or helpfulness, enabling scalable evaluation. Limitations include bias toward verbose or self-similar answers and inconsistency, so it should be calibrated against human judgments."
+    },
+    {
+      "question": "What key metrics should be monitored for LLMs in production?",
+      "answer": "Latency (including time to first token), throughput, token usage and cost, error rates, and output quality signals like user feedback, hallucination rate, and safety violations. Also monitor drift in inputs and retrieval quality."
+    },
+    {
+      "question": "What are guardrails in LLMOps?",
+      "answer": "Guardrails are input and output controls that enforce safety and policy, such as filtering prompt injections, blocking toxic or PII-containing content, and validating output formats. They can be rule-based, classifier-based, or LLM-based."
+    },
+    {
+      "question": "What is prompt injection and how can it be mitigated?",
+      "answer": "Prompt injection is when malicious input manipulates the model into ignoring its instructions or leaking data. Mitigations include input sanitization, separating system and user content, least-privilege tool access, output validation, and adversarial testing."
+    },
+    {
+      "question": "What techniques help reduce LLM inference cost and latency?",
+      "answer": "Caching (including semantic caching), prompt compression, using smaller or distilled models, quantization, batching, streaming responses, and routing requests to different models based on task complexity."
+    }
+  ]
+}
