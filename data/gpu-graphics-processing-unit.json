@@ -1,0 +1,54 @@
+{
+  "topic": "GPU (Graphics Processing Unit)",
+  "createdAt": "2026-11-09T07:37:48.694Z",
+  "cards": [
+    {
+      "question": "What is a GPU and what is its primary purpose?",
+      "answer": "A GPU (Graphics Processing Unit) is a specialized processor designed to perform many calculations in parallel. It was originally built to render graphics and images, but is now widely used for general-purpose computing such as AI, scientific simulation, and video processing."
+    },
+    {
+      "question": "How does a GPU differ architecturally from a CPU?",
+      "answer": "A CPU has a few powerful cores optimized for low-latency, sequential, and complex control-flow tasks. A GPU has hundreds to thousands of simpler cores optimized for high-throughput, data-parallel workloads."
+    },
+    {
+      "question": "What is parallel processing, and why are GPUs well suited to it?",
+      "answer": "Parallel processing means executing many operations simultaneously. GPUs excel at it because they contain many cores that can apply the same operation to large sets of data at once, such as pixels, vertices, or matrix elements."
+    },
+    {
+      "question": "What is the difference between an integrated GPU and a dedicated (discrete) GPU?",
+      "answer": "An integrated GPU is built into the same chip as the CPU and shares system RAM, making it cheaper and more power-efficient. A dedicated GPU is a separate card with its own memory (VRAM), offering much higher performance."
+    },
+    {
+      "question": "What is VRAM and why does it matter?",
+      "answer": "VRAM (video RAM) is the high-bandwidth memory on a GPU that stores textures, frame buffers, and model data. Insufficient VRAM limits resolution, texture quality, and the size of datasets or AI models that can be processed."
+    },
+    {
+      "question": "What is the graphics rendering pipeline?",
+      "answer": "It is the sequence of stages a GPU uses to turn 3D scene data into a 2D image: vertex processing, primitive assembly, rasterization, fragment (pixel) shading, and output to the frame buffer."
+    },
+    {
+      "question": "What is a shader?",
+      "answer": "A shader is a small program that runs on the GPU to control part of the rendering process, such as vertex positions, pixel colors, lighting, or effects. Common types include vertex, fragment (pixel), geometry, and compute shaders."
+    },
+    {
+      "question": "What is GPGPU computing?",
+      "answer": "General-Purpose computing on GPUs (GPGPU) uses the GPU's parallel hardware for non-graphics tasks like machine learning, physics simulation, and cryptography. Frameworks such as CUDA, OpenCL, and Vulkan compute enable it."
+    },
+    {
+      "question": "What is CUDA?",
+      "answer": "CUDA is NVIDIA's parallel computing platform and programming model that lets developers write code that runs on NVIDIA GPUs, typically in C/C++, using kernels executed by many threads."
+    },
+    {
+      "question": "Why are GPUs important for deep learning?",
+      "answer": "Neural network training and inference rely heavily on large matrix and tensor operations, which are highly parallelizable. GPUs, especially with specialized units like Tensor Cores, can speed these up by orders of magnitude over CPUs."
+    },
+    {
+      "question": "What are common graphics APIs that software uses to talk to a GPU?",
+      "answer": "Common APIs include DirectX (Microsoft), OpenGL, Vulkan, and Metal (Apple). They provide standardized ways for applications to issue rendering and compute commands to the GPU through drivers."
+    },
+    {
+      "question": "What is ray tracing and how do modern GPUs support it?",
+      "answer": "Ray tracing simulates the path of light rays to produce realistic reflections, shadows, and lighting. Modern GPUs include dedicated hardware (e.g., NVIDIA RT Cores, AMD Ray Accelerators) to speed up ray-intersection calculations in real time."
+    }
+  ]
+}
