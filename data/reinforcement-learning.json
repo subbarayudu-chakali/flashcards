@@ -1,0 +1,54 @@
+{
+  "topic": "Reinforcement Learning",
+  "createdAt": "2026-11-09T11:33:51.578Z",
+  "cards": [
+    {
+      "question": "What is reinforcement learning (RL)?",
+      "answer": "RL is a machine learning paradigm in which an agent learns to make decisions by interacting with an environment, taking actions and receiving rewards. The goal is to learn a policy that maximizes cumulative reward over time."
+    },
+    {
+      "question": "What are the main components of an RL problem?",
+      "answer": "The agent, the environment, states, actions, and rewards. The agent observes a state, chooses an action, and the environment returns a new state and a reward."
+    },
+    {
+      "question": "What is a Markov Decision Process (MDP)?",
+      "answer": "An MDP is the formal framework for RL, defined by states S, actions A, transition probabilities P(s'|s,a), a reward function R, and a discount factor γ. It assumes the Markov property: the next state depends only on the current state and action."
+    },
+    {
+      "question": "What is a policy?",
+      "answer": "A policy π(a|s) is the agent's strategy, mapping states to actions (deterministic) or to probability distributions over actions (stochastic). The objective of RL is to find an optimal policy."
+    },
+    {
+      "question": "What is the difference between the state-value function V(s) and the action-value function Q(s,a)?",
+      "answer": "V^π(s) is the expected return starting from state s and following policy π. Q^π(s,a) is the expected return after taking action a in state s and then following π."
+    },
+    {
+      "question": "What is the discount factor γ and why is it used?",
+      "answer": "γ (between 0 and 1) weights future rewards relative to immediate ones in the return G = Σ γ^t r_t. It keeps infinite sums finite and expresses a preference for sooner rewards."
+    },
+    {
+      "question": "What is the Bellman equation?",
+      "answer": "It expresses a value recursively: V^π(s) = E[r + γ V^π(s')]. The optimal version uses a max over actions: Q*(s,a) = E[r + γ max_a' Q*(s',a')]."
+    },
+    {
+      "question": "What is the exploration vs. exploitation trade-off?",
+      "answer": "Exploitation uses current knowledge to pick the best-known action, while exploration tries other actions to discover potentially better ones. Strategies such as ε-greedy balance the two."
+    },
+    {
+      "question": "What is Q-learning?",
+      "answer": "Q-learning is a model-free, off-policy algorithm that updates Q(s,a) ← Q(s,a) + α[r + γ max_a' Q(s',a') − Q(s,a)]. It learns the optimal action-value function regardless of the policy being followed."
+    },
+    {
+      "question": "What is the difference between on-policy and off-policy learning?",
+      "answer": "On-policy methods (e.g., SARSA) learn the value of the policy currently used to act. Off-policy methods (e.g., Q-learning) learn about a target policy different from the behavior policy generating the data."
+    },
+    {
+      "question": "What is the difference between model-based and model-free RL?",
+      "answer": "Model-based methods learn or use a model of the environment's transitions and rewards to plan. Model-free methods learn values or policies directly from experience without modeling the dynamics."
+    },
+    {
+      "question": "How do policy gradient methods differ from value-based methods, and what is Deep Q-Network (DQN)?",
+      "answer": "Policy gradient methods directly optimize policy parameters by ascending the gradient of expected return, while value-based methods learn value functions and derive a policy from them. DQN is a value-based method that uses a neural network to approximate Q, stabilized by experience replay and target networks."
+    }
+  ]
+}
