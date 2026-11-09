@@ -1,0 +1,54 @@
+{
+  "topic": "LangChain",
+  "createdAt": "2026-11-09T07:34:29.793Z",
+  "cards": [
+    {
+      "question": "What is LangChain?",
+      "answer": "LangChain is an open-source framework for building applications powered by large language models (LLMs). It provides abstractions for connecting models to prompts, tools, data sources, memory, and other components so they can be composed into workflows."
+    },
+    {
+      "question": "What are the core building blocks of LangChain?",
+      "answer": "The main components are models (LLMs and chat models), prompt templates, output parsers, retrievers, tools, memory, and chains or agents that compose them. These pieces share common interfaces so they can be swapped and combined easily."
+    },
+    {
+      "question": "What is the difference between an LLM and a chat model in LangChain?",
+      "answer": "An LLM takes a string as input and returns a string. A chat model takes a list of messages (such as System, Human, and AI messages) and returns a message, which is the format most modern models use."
+    },
+    {
+      "question": "What is a PromptTemplate (or ChatPromptTemplate)?",
+      "answer": "A prompt template is a reusable prompt with placeholders for variables that are filled at runtime. ChatPromptTemplate structures prompts as a sequence of role-based messages, making prompts consistent and parameterizable."
+    },
+    {
+      "question": "What is LCEL (LangChain Expression Language)?",
+      "answer": "LCEL is a declarative way to compose components using the pipe operator (|), such as prompt | model | parser. Components that implement the Runnable interface get streaming, async, batching, and parallel execution support automatically."
+    },
+    {
+      "question": "What is the Runnable interface?",
+      "answer": "Runnable is the standard interface that LangChain components implement. It exposes methods such as invoke, batch, and stream (plus async variants), which lets different components be chained uniformly."
+    },
+    {
+      "question": "What is an output parser used for?",
+      "answer": "An output parser converts a model's raw output into a more usable structure, such as a string, JSON, a list, or a Pydantic object. This makes downstream code more reliable and can also supply formatting instructions to the model."
+    },
+    {
+      "question": "What is Retrieval-Augmented Generation (RAG) in LangChain?",
+      "answer": "RAG retrieves relevant external documents and includes them in the prompt so the model can answer using up-to-date or private knowledge. In LangChain, this typically involves document loaders, text splitters, embeddings, a vector store, and a retriever."
+    },
+    {
+      "question": "What roles do embeddings and vector stores play in LangChain?",
+      "answer": "Embeddings convert text into numerical vectors that capture semantic meaning. Vector stores (like FAISS, Chroma, or Pinecone) store these vectors and support similarity search to find relevant documents for a query."
+    },
+    {
+      "question": "Why use text splitters when loading documents?",
+      "answer": "Text splitters break long documents into smaller chunks that fit within context limits and improve retrieval precision. Tools like RecursiveCharacterTextSplitter split on natural boundaries and often use overlap to preserve context."
+    },
+    {
+      "question": "What is an agent in LangChain, and how does it differ from a chain?",
+      "answer": "A chain follows a fixed, predefined sequence of steps, while an agent uses an LLM to decide dynamically which tools to call and in what order. Agents loop through reasoning and action until they reach a final answer."
+    },
+    {
+      "question": "What is LangGraph and how does it relate to LangChain?",
+      "answer": "LangGraph is a library from the LangChain team for building stateful, multi-step agent workflows as graphs of nodes and edges. It supports loops, branching, persistence, and human-in-the-loop control, and is now the recommended approach for complex agents."
+    }
+  ]
+}
