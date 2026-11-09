@@ -1,0 +1,54 @@
+{
+  "topic": "TPU (Tensor Processing Unit)",
+  "createdAt": "2026-11-09T07:37:02.477Z",
+  "cards": [
+    {
+      "question": "What is a TPU?",
+      "answer": "A Tensor Processing Unit is a custom application-specific integrated circuit (ASIC) designed by Google to accelerate machine learning workloads, especially the matrix and tensor operations in neural networks."
+    },
+    {
+      "question": "Why did Google develop the TPU?",
+      "answer": "Google projected that running neural-network inference, such as for voice search, on CPUs would require doubling its datacenter capacity. A dedicated chip offered much better performance per watt and per dollar. The first TPU was deployed internally in 2015."
+    },
+    {
+      "question": "What is a systolic array, and how does a TPU use it?",
+      "answer": "A systolic array is a grid of multiply-accumulate units through which data flows rhythmically from cell to cell. Each value is reused many times without repeated memory access. The TPU's Matrix Multiply Unit (MXU) is built this way, which makes matrix multiplication fast and energy-efficient."
+    },
+    {
+      "question": "What was distinctive about the first-generation TPU (v1)?",
+      "answer": "TPU v1 was inference-only and used 8-bit integer arithmetic. Its matrix unit was a 256×256 systolic array of 65,536 MAC units, giving about 92 peak TOPS."
+    },
+    {
+      "question": "How did TPU v2 and v3 differ from v1?",
+      "answer": "TPU v2 and v3 added support for training by using floating-point math (bfloat16), high-bandwidth memory, and high-speed interconnects for linking chips into pods. v3 added liquid cooling and higher performance."
+    },
+    {
+      "question": "What is bfloat16 and why is it used on TPUs?",
+      "answer": "bfloat16 is a 16-bit floating-point format with an 8-bit exponent (the same range as float32) and a 7-bit mantissa. It halves memory and bandwidth use compared with float32 while remaining numerically stable for training, so it usually needs no loss scaling."
+    },
+    {
+      "question": "What is a TPU Pod?",
+      "answer": "A TPU Pod is a large cluster of TPU chips connected by a dedicated high-speed interconnect, so they act as one supercomputer. Pods let a single training job scale across hundreds or thousands of chips."
+    },
+    {
+      "question": "What role does the XLA compiler play with TPUs?",
+      "answer": "XLA (Accelerated Linear Algebra) compiles computation graphs from frameworks into optimized TPU machine code. It fuses operations and optimizes memory use, and it is the main path from TensorFlow, JAX, and PyTorch/XLA to TPU hardware."
+    },
+    {
+      "question": "Which frameworks can run on TPUs?",
+      "answer": "TensorFlow, JAX, and PyTorch (through PyTorch/XLA) are all supported on TPUs. JAX and TensorFlow have the most native support."
+    },
+    {
+      "question": "How do TPUs compare with GPUs?",
+      "answer": "TPUs are ASICs specialized for dense matrix operations, so they are very efficient for large-scale neural-network training and inference. GPUs are more flexible and general-purpose, with a broader software ecosystem and support for graphics and varied workloads."
+    },
+    {
+      "question": "How can you access TPUs?",
+      "answer": "You can rent them through Google Cloud (Cloud TPU VMs and TPU Pods) or use limited free access in Google Colab and Kaggle notebooks. They are not generally sold as standalone hardware."
+    },
+    {
+      "question": "What is the Edge TPU?",
+      "answer": "The Edge TPU is a small, low-power Google ASIC for running inference on devices at the edge, such as IoT hardware. It is sold in Coral products and runs quantized TensorFlow Lite models."
+    }
+  ]
+}
