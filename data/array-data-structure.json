@@ -1,0 +1,54 @@
+{
+  "topic": "Array Data Structure",
+  "createdAt": "2026-11-09T11:39:34.478Z",
+  "cards": [
+    {
+      "question": "What is an array?",
+      "answer": "An array is a data structure that stores a fixed-size, ordered collection of elements, typically of the same type, in contiguous memory locations. Each element is accessed by its numeric index."
+    },
+    {
+      "question": "Why do arrays offer O(1) random access?",
+      "answer": "Because elements are stored contiguously, the address of element i is computed as base_address + i * element_size. This arithmetic takes constant time regardless of array size."
+    },
+    {
+      "question": "What is the time complexity of inserting an element at the beginning or middle of an array?",
+      "answer": "O(n), because subsequent elements must be shifted one position to make room. Inserting at the end (when capacity exists) is O(1)."
+    },
+    {
+      "question": "What is the time complexity of deleting an element from an array at index i?",
+      "answer": "O(n) in general, since elements after index i must be shifted left to fill the gap. Deleting the last element is O(1)."
+    },
+    {
+      "question": "What is the time complexity of searching in an unsorted array versus a sorted array?",
+      "answer": "Unsorted: O(n) using linear search. Sorted: O(log n) using binary search."
+    },
+    {
+      "question": "What is the difference between a static array and a dynamic array?",
+      "answer": "A static array has a fixed size set at creation, while a dynamic array (e.g., Python list, Java ArrayList, C++ vector) can grow or shrink automatically. Dynamic arrays resize by allocating a larger block and copying elements over."
+    },
+    {
+      "question": "Why is appending to a dynamic array amortized O(1)?",
+      "answer": "When full, the array typically doubles its capacity, an O(n) copy that happens rarely. Spread across many appends, the average cost per append is constant."
+    },
+    {
+      "question": "How are arrays indexed in most programming languages, and what happens with out-of-bounds access?",
+      "answer": "Most languages use zero-based indexing, so valid indices are 0 to n-1. Out-of-bounds access raises an error in safe languages (e.g., IndexError, ArrayIndexOutOfBoundsException) but causes undefined behavior in C/C++."
+    },
+    {
+      "question": "What are the main advantages and disadvantages of arrays?",
+      "answer": "Advantages: fast index access, cache-friendly contiguous memory, low overhead. Disadvantages: fixed size (for static arrays), costly insertions/deletions in the middle, and need for contiguous memory."
+    },
+    {
+      "question": "How is a multidimensional (2D) array stored in memory?",
+      "answer": "It is flattened into one contiguous block, either in row-major order (rows stored consecutively, as in C) or column-major order (columns stored consecutively, as in Fortran). In row-major, element [i][j] is at i * num_cols + j."
+    },
+    {
+      "question": "Why are arrays considered cache-friendly?",
+      "answer": "Contiguous storage means that accessing one element loads neighboring elements into the CPU cache, giving good spatial locality. Sequential traversal is therefore very fast compared to pointer-based structures like linked lists."
+    },
+    {
+      "question": "How does an array compare to a linked list in terms of access and insertion?",
+      "answer": "Arrays offer O(1) index access but O(n) insertion/deletion in the middle, while linked lists have O(n) access but O(1) insertion/deletion once the position is known. Arrays also use less memory per element since they don't store pointers."
+    }
+  ]
+}
