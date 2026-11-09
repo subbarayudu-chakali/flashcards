@@ -1,0 +1,54 @@
+{
+  "topic": "MLOps",
+  "createdAt": "2026-11-09T11:34:59.169Z",
+  "cards": [
+    {
+      "question": "What is MLOps?",
+      "answer": "MLOps (Machine Learning Operations) is a set of practices combining ML, DevOps, and data engineering to reliably build, deploy, monitor, and maintain ML models in production. Its goal is to make the ML lifecycle repeatable, scalable, and automated."
+    },
+    {
+      "question": "How does MLOps differ from traditional DevOps?",
+      "answer": "Beyond code, MLOps must version and manage data, models, and experiments, and handle performance degradation as data changes. ML systems are also probabilistic, so they need continuous retraining and monitoring, not just build-and-deploy pipelines."
+    },
+    {
+      "question": "What are the main stages of the ML lifecycle in MLOps?",
+      "answer": "Data collection and preparation, feature engineering, model training and experimentation, validation/evaluation, deployment, and monitoring with feedback into retraining. These stages form a continuous loop rather than a linear process."
+    },
+    {
+      "question": "What is data drift vs. concept drift?",
+      "answer": "Data drift is a change in the distribution of input features over time, while concept drift is a change in the relationship between inputs and the target variable. Both can degrade model performance even when the code is unchanged."
+    },
+    {
+      "question": "Why is versioning important in MLOps, and what should be versioned?",
+      "answer": "Versioning enables reproducibility, auditing, and rollback. You should version code, datasets, features, model artifacts, hyperparameters, and environment/configuration (tools include Git, DVC, and MLflow)."
+    },
+    {
+      "question": "What is CI/CD/CT in the context of MLOps?",
+      "answer": "CI tests and validates code, data, and models; CD automatically deploys the model or pipeline to production; CT (Continuous Training) automatically retrains models on new data or when triggers like drift occur."
+    },
+    {
+      "question": "What is a feature store and why use one?",
+      "answer": "A feature store is a centralized system for storing, managing, and serving features for both training and inference. It promotes reuse and prevents training-serving skew by ensuring consistent feature computation."
+    },
+    {
+      "question": "What is training-serving skew?",
+      "answer": "Training-serving skew is a discrepancy between a model's performance in training and in production, caused by differences in data, feature processing, or pipelines. It is mitigated by shared feature code, feature stores, and monitoring."
+    },
+    {
+      "question": "What is experiment tracking and what does it record?",
+      "answer": "Experiment tracking logs parameters, metrics, code versions, data versions, and artifacts for each training run. It lets teams compare runs and reproduce results (e.g., MLflow, Weights & Biases)."
+    },
+    {
+      "question": "What is a model registry?",
+      "answer": "A model registry is a central repository that stores trained model versions along with metadata, lineage, and stage status (e.g., staging, production, archived). It supports governance, approval workflows, and controlled deployment."
+    },
+    {
+      "question": "What are common model deployment strategies?",
+      "answer": "Common strategies include batch prediction, real-time online serving via APIs, and edge deployment; rollout methods include canary releases, blue/green deployments, A/B testing, and shadow deployment. These reduce risk when releasing new models."
+    },
+    {
+      "question": "What should be monitored for ML models in production?",
+      "answer": "Monitor model quality (accuracy, precision, etc. when labels are available), data and prediction drift, data quality, and latency/throughput/resource usage. Alerts on these signals can trigger investigation or automated retraining."
+    }
+  ]
+}
