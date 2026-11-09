@@ -1,0 +1,54 @@
+{
+  "topic": "Kubeflow",
+  "createdAt": "2026-11-09T07:34:57.415Z",
+  "cards": [
+    {
+      "question": "What is Kubeflow?",
+      "answer": "Kubeflow is an open-source platform that makes deploying, scaling, and managing machine learning workflows on Kubernetes simple, portable, and composable. It provides a set of tools covering the ML lifecycle from experimentation to production."
+    },
+    {
+      "question": "Why was Kubeflow created, and what problem does it solve?",
+      "answer": "It addresses the difficulty of moving ML from notebooks to reproducible, scalable production systems. By building on Kubernetes, it offers portable infrastructure, resource management, and orchestration for ML workloads across on-prem and cloud environments."
+    },
+    {
+      "question": "What are the main components of the Kubeflow ecosystem?",
+      "answer": "Core components include Kubeflow Pipelines (workflow orchestration), Notebooks (interactive development), Training Operator/Trainer (distributed training), Katib (hyperparameter tuning), KServe (model serving), and a Central Dashboard. Model Registry and Spark Operator are also part of the ecosystem."
+    },
+    {
+      "question": "What is Kubeflow Pipelines (KFP)?",
+      "answer": "KFP is a component for building and running portable, reusable, multi-step ML workflows as directed acyclic graphs (DAGs) on Kubernetes. Each step runs in a container, and runs, artifacts, and metadata are tracked in a UI."
+    },
+    {
+      "question": "How do you define a pipeline using the KFP SDK?",
+      "answer": "You write Python functions decorated with @dsl.component for components and compose them in a function decorated with @dsl.pipeline. The pipeline is then compiled to YAML (IR) and submitted to the KFP backend to run."
+    },
+    {
+      "question": "What is Katib?",
+      "answer": "Katib is Kubeflow's Kubernetes-native system for automated machine learning, including hyperparameter tuning, early stopping, and neural architecture search. It runs experiments consisting of trials, using algorithms such as grid search, random search, and Bayesian optimization."
+    },
+    {
+      "question": "What is the Kubeflow Training Operator used for?",
+      "answer": "It runs distributed training jobs on Kubernetes through custom resources such as PyTorchJob, TFJob, MPIJob, and XGBoostJob. It handles pod creation, coordination, and lifecycle for multi-worker training across frameworks."
+    },
+    {
+      "question": "What is KServe and what role does it play in Kubeflow?",
+      "answer": "KServe is a Kubernetes-based model serving platform that provides standardized inference via the InferenceService custom resource. It supports autoscaling (including scale-to-zero), canary rollouts, multiple frameworks, and a common prediction protocol."
+    },
+    {
+      "question": "What are Kubeflow Notebooks?",
+      "answer": "Kubeflow Notebooks let users create and manage web-based development environments, such as JupyterLab, VS Code, and RStudio, running as pods in the cluster. They give data scientists access to cluster resources like GPUs and shared storage."
+    },
+    {
+      "question": "How does Kubeflow relate to Kubernetes concepts like CRDs and operators?",
+      "answer": "Kubeflow extends Kubernetes using Custom Resource Definitions and controllers (operators) to represent ML objects such as training jobs, experiments, and inference services. This lets you manage ML workloads declaratively with kubectl and YAML."
+    },
+    {
+      "question": "How does Kubeflow support multi-user environments and isolation?",
+      "answer": "Kubeflow uses Profiles, which map to Kubernetes namespaces, to give each user or team an isolated workspace with its own resources and access policies. It relies on Istio and authentication integrations (e.g., Dex/OIDC) for access control and traffic management."
+    },
+    {
+      "question": "What are the typical ways to install Kubeflow, and what are the prerequisites?",
+      "answer": "You can install the full platform using Kubeflow manifests (via kustomize) or through vendor-supported distributions on cloud providers, or install individual components standalone. It requires a running Kubernetes cluster with sufficient resources, kubectl, and kustomize."
+    }
+  ]
+}
