@@ -1,0 +1,54 @@
+{
+  "topic": "Linked List Data Structure",
+  "createdAt": "2026-11-09T11:39:48.465Z",
+  "cards": [
+    {
+      "question": "What is a linked list?",
+      "answer": "A linear data structure made of nodes, where each node stores data and a reference (pointer) to the next node. Unlike arrays, elements are not stored in contiguous memory."
+    },
+    {
+      "question": "What are the two main parts of a singly linked list node?",
+      "answer": "The data (the value stored) and a next pointer that references the following node, or null if it is the last node."
+    },
+    {
+      "question": "What is the head of a linked list, and why is it important?",
+      "answer": "The head is a reference to the first node in the list. It is the only entry point, so losing it means losing access to the entire list."
+    },
+    {
+      "question": "What is the time complexity of accessing the k-th element in a linked list, and why?",
+      "answer": "O(k), or O(n) in the worst case, because you must traverse sequentially from the head. Linked lists do not support random access like arrays."
+    },
+    {
+      "question": "What is the time complexity of inserting at the head of a singly linked list?",
+      "answer": "O(1). You create a new node, point its next to the current head, and update head to the new node."
+    },
+    {
+      "question": "How do you insert a node at the end of a singly linked list, and what is the cost?",
+      "answer": "Traverse to the last node and set its next to the new node, costing O(n). With a maintained tail pointer, it becomes O(1)."
+    },
+    {
+      "question": "How do you delete a given node from a singly linked list?",
+      "answer": "Find the previous node and set its next to the node's next, bypassing the target. Finding the predecessor takes O(n); the pointer change itself is O(1)."
+    },
+    {
+      "question": "How does a doubly linked list differ from a singly linked list?",
+      "answer": "Each node has both next and prev pointers, allowing traversal in both directions and O(1) deletion given a node reference. The tradeoff is extra memory per node and more pointers to update."
+    },
+    {
+      "question": "What is a circular linked list?",
+      "answer": "A linked list in which the last node points back to the first node instead of null. It is useful for round-robin scheduling and cyclic buffers."
+    },
+    {
+      "question": "How do you detect a cycle in a linked list?",
+      "answer": "Use Floyd's tortoise and hare algorithm: move a slow pointer one step and a fast pointer two steps at a time. If they ever meet, a cycle exists; if fast reaches null, there is none. It runs in O(n) time and O(1) space."
+    },
+    {
+      "question": "How do you reverse a singly linked list iteratively?",
+      "answer": "Keep prev, curr, and next pointers. For each node, save curr.next, set curr.next = prev, then advance prev and curr. When curr is null, prev is the new head. This takes O(n) time and O(1) space."
+    },
+    {
+      "question": "What are the advantages and disadvantages of linked lists compared with arrays?",
+      "answer": "Advantages: dynamic size and O(1) insertion/deletion at a known position without shifting elements. Disadvantages: no random access (O(n) lookup), extra memory for pointers, and poor cache locality."
+    }
+  ]
+}
