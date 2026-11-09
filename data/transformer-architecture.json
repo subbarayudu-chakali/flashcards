@@ -1,0 +1,54 @@
+{
+  "topic": "Transformer Architecture",
+  "createdAt": "2026-11-09T11:36:40.383Z",
+  "cards": [
+    {
+      "question": "What problem did the Transformer (Vaswani et al., 2017, 'Attention Is All You Need') aim to solve?",
+      "answer": "It replaced recurrent and convolutional sequence models with attention-only architecture, allowing parallel processing of sequence tokens and better modeling of long-range dependencies. This made training much faster and more scalable than RNNs/LSTMs."
+    },
+    {
+      "question": "What is self-attention?",
+      "answer": "Self-attention lets each token in a sequence compute a weighted combination of all tokens' representations (including its own), with weights based on learned relevance between tokens. This produces context-aware representations for every position."
+    },
+    {
+      "question": "What are queries, keys, and values in attention?",
+      "answer": "Queries (Q), keys (K), and values (V) are linear projections of the input embeddings. A query is matched against keys to produce attention weights, which are then used to take a weighted sum of the values."
+    },
+    {
+      "question": "What is the formula for scaled dot-product attention?",
+      "answer": "Attention(Q,K,V) = softmax(QKᵀ / √d_k) V. The dot products measure query-key similarity, and softmax converts them into weights that sum to 1."
+    },
+    {
+      "question": "Why is the dot product scaled by √d_k?",
+      "answer": "For large d_k, dot products grow in magnitude and push softmax into regions with extremely small gradients. Dividing by √d_k keeps the variance near 1 and stabilizes training."
+    },
+    {
+      "question": "What is multi-head attention and why is it used?",
+      "answer": "It runs several attention operations (heads) in parallel with different learned projections of Q, K, and V, then concatenates and linearly projects the results. This lets the model attend to different types of relationships and subspaces simultaneously."
+    },
+    {
+      "question": "Why do Transformers need positional encoding?",
+      "answer": "Self-attention is permutation-invariant and has no inherent notion of token order. Positional encodings (sinusoidal, learned, or relative/rotary variants) are added to or incorporated with embeddings to inject order information."
+    },
+    {
+      "question": "What are the main components of a Transformer encoder layer?",
+      "answer": "Each encoder layer has a multi-head self-attention sublayer followed by a position-wise feed-forward network. Each sublayer is wrapped with a residual connection and layer normalization."
+    },
+    {
+      "question": "How does a decoder layer differ from an encoder layer?",
+      "answer": "A decoder layer has masked self-attention (preventing attention to future tokens), then cross-attention over the encoder outputs, then a feed-forward network. Each sublayer uses residual connections and layer normalization."
+    },
+    {
+      "question": "What is causal (masked) attention and why is it needed?",
+      "answer": "Causal masking sets attention scores for future positions to −∞ before softmax, so each token can only attend to itself and earlier tokens. This preserves the autoregressive property during parallel training of text generation."
+    },
+    {
+      "question": "What role do the feed-forward network, residual connections, and layer normalization play?",
+      "answer": "The feed-forward network applies a non-linear transformation independently to each position, adding capacity beyond attention. Residual connections ease gradient flow in deep stacks, and layer normalization stabilizes activations and training."
+    },
+    {
+      "question": "What is the computational complexity of self-attention, and what is its main limitation?",
+      "answer": "Self-attention costs O(n²·d) time and O(n²) memory in sequence length n, because every token attends to every other token. This makes very long contexts expensive, motivating efficient variants like sparse attention and FlashAttention."
+    }
+  ]
+}
