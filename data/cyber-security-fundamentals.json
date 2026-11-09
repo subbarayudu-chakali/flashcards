@@ -1,0 +1,54 @@
+{
+  "topic": "Cyber Security Fundamentals",
+  "createdAt": "2026-11-09T11:40:55.589Z",
+  "cards": [
+    {
+      "question": "What is the CIA triad in cyber security?",
+      "answer": "The CIA triad is the core model of information security: Confidentiality (only authorized parties can access data), Integrity (data is accurate and unaltered), and Availability (systems and data are accessible when needed)."
+    },
+    {
+      "question": "What is the difference between a threat, a vulnerability, and a risk?",
+      "answer": "A threat is anything that could cause harm (e.g., an attacker or malware); a vulnerability is a weakness that can be exploited (e.g., unpatched software); risk is the likelihood and impact of a threat exploiting a vulnerability."
+    },
+    {
+      "question": "What is phishing, and how can you defend against it?",
+      "answer": "Phishing is a social engineering attack using deceptive emails, messages, or sites to trick users into revealing credentials or installing malware. Defenses include user awareness training, email filtering, checking sender and URLs, and multi-factor authentication."
+    },
+    {
+      "question": "What is multi-factor authentication (MFA)?",
+      "answer": "MFA requires two or more verification factors from different categories: something you know (password), something you have (token or phone), and something you are (biometrics). It protects accounts even if a password is stolen."
+    },
+    {
+      "question": "What is the difference between symmetric and asymmetric encryption?",
+      "answer": "Symmetric encryption uses one shared secret key for both encryption and decryption (e.g., AES) and is fast. Asymmetric encryption uses a public/private key pair (e.g., RSA) and solves key distribution but is slower."
+    },
+    {
+      "question": "What is the purpose of a firewall?",
+      "answer": "A firewall monitors and filters network traffic based on defined rules, allowing or blocking connections to separate trusted internal networks from untrusted ones like the internet."
+    },
+    {
+      "question": "What is the principle of least privilege?",
+      "answer": "Users, programs, and systems should be given only the minimum access rights needed to perform their tasks. This limits the damage from compromised accounts or insider misuse."
+    },
+    {
+      "question": "What is ransomware?",
+      "answer": "Ransomware is malware that encrypts a victim's files and demands payment for the decryption key. Key defenses are regular offline backups, patching, email security, and network segmentation."
+    },
+    {
+      "question": "What is SQL injection?",
+      "answer": "SQL injection is an attack where malicious SQL code is inserted into input fields to manipulate a database, potentially exposing or altering data. It is prevented with parameterized queries, input validation, and least-privilege database accounts."
+    },
+    {
+      "question": "What is the difference between hashing and encryption?",
+      "answer": "Encryption is reversible with the correct key and protects confidentiality, while hashing is a one-way function producing a fixed-size digest used for integrity checks and password storage. Passwords should be hashed with salts using algorithms like bcrypt or Argon2."
+    },
+    {
+      "question": "What is a zero-day vulnerability?",
+      "answer": "A zero-day is a software flaw unknown to the vendor and without an available patch, so attackers can exploit it before defenders can fix it. Mitigations include defense in depth, monitoring, and rapid patching once fixes are released."
+    },
+    {
+      "question": "What are the main phases of incident response?",
+      "answer": "Common phases are preparation, detection and analysis, containment, eradication, recovery, and lessons learned. Following a defined plan reduces damage and recovery time and improves future defenses."
+    }
+  ]
+}
