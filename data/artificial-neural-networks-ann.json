@@ -1,0 +1,54 @@
+{
+  "topic": "Artificial Neural Networks (ANN)",
+  "createdAt": "2026-11-10T10:44:38.536Z",
+  "cards": [
+    {
+      "question": "What is an Artificial Neural Network (ANN)?",
+      "answer": "An ANN is a computational model inspired by biological neural networks, made of interconnected nodes (neurons) organized in layers. It learns to map inputs to outputs by adjusting the weights of its connections from data."
+    },
+    {
+      "question": "What are the three main types of layers in a basic feedforward ANN?",
+      "answer": "The input layer receives raw features, one or more hidden layers transform them through weighted sums and nonlinearities, and the output layer produces the final prediction (e.g., class probabilities or a regression value)."
+    },
+    {
+      "question": "How does a single artificial neuron compute its output?",
+      "answer": "It computes a weighted sum of its inputs plus a bias, z = w·x + b, then applies an activation function: a = f(z). The result is passed on to the next layer."
+    },
+    {
+      "question": "What is the purpose of an activation function, and why must it be nonlinear?",
+      "answer": "It introduces nonlinearity so the network can learn complex patterns. Without it, stacked layers would collapse into a single linear transformation, no matter how deep the network is."
+    },
+    {
+      "question": "Name three common activation functions and a typical use for each.",
+      "answer": "ReLU, f(z)=max(0,z), is the default for hidden layers. Sigmoid outputs values in (0,1) and suits binary classification outputs. Softmax turns outputs into a probability distribution for multi-class classification."
+    },
+    {
+      "question": "What are weights and biases in an ANN?",
+      "answer": "Weights set the strength of the connection between neurons and determine how much each input influences the output. Biases are offsets that let a neuron shift its activation threshold. Both are learned parameters."
+    },
+    {
+      "question": "What is a loss (cost) function? Give two examples.",
+      "answer": "A loss function measures how far the network's predictions are from the true targets, and training aims to minimize it. Examples: Mean Squared Error for regression and Cross-Entropy for classification."
+    },
+    {
+      "question": "What is forward propagation?",
+      "answer": "Forward propagation passes input data through the network layer by layer, computing each neuron's weighted sum and activation, until the output layer produces a prediction. The loss is then computed from this prediction."
+    },
+    {
+      "question": "What is backpropagation?",
+      "answer": "Backpropagation uses the chain rule to compute the gradient of the loss with respect to every weight and bias, moving from the output layer back to the input. These gradients tell the optimizer how to update the parameters."
+    },
+    {
+      "question": "How does gradient descent train a neural network?",
+      "answer": "It iteratively updates each parameter in the direction opposite to the loss gradient: w ← w − η·∂L/∂w, where η is the learning rate. Variants include stochastic, mini-batch, and Adam optimizers."
+    },
+    {
+      "question": "What is overfitting in ANNs, and how can it be reduced?",
+      "answer": "Overfitting occurs when a network memorizes training data and performs poorly on unseen data. It can be reduced with more data, regularization (L1/L2), dropout, early stopping, data augmentation, or a simpler model."
+    },
+    {
+      "question": "What is the vanishing gradient problem?",
+      "answer": "In deep networks, gradients can shrink toward zero as they are propagated backward, especially with sigmoid or tanh activations, so early layers learn very slowly. Remedies include ReLU activations, careful weight initialization, batch normalization, and residual connections."
+    }
+  ]
+}
